@@ -20,7 +20,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Crafted with <span className="text-amber-600">Passion</span>
+            Crafted with love <span className="text-amber-600">Passion</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             At Smoked Fusion, we believe that great food is born from the perfect marriage of 
