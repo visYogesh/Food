@@ -1,18 +1,19 @@
-
+// src/components/Navigation.tsx
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
+import { NavLink } from "react-router-dom";
+
+const navItems = [
+  { name: "Home", to: "/" },
+  { name: "Story", to: "/about" },
+  { name: "Legacy", to: "/legacy" },
+  { name: "Menu", to: "/menu" },
+  { name: "Contact", to: "/contact" },
+];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Legacy", href: "#legacy" },
-    { name: "Menu", href: "#menu" },
-    { name: "Contact", href: "#contact" },
-  ];
 
   return (
     <motion.nav
@@ -27,23 +28,32 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold text-amber-400"
           >
-            Smoked Fusion
+            <NavLink to="/">Smoked Fusion</NavLink>
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
+              <NavLink
                 key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, color: "#f59e0b" }}
-                className="text-white hover:text-amber-400 transition-colors font-medium"
+                to={item.to}
+                className={({ isActive }) =>
+                  `font-medium transition-colors ${
+                    isActive
+                      ? "text-amber-400"
+                      : "text-white hover:text-amber-400"
+                  }`
+                }
               >
-                {item.name}
-              </motion.a>
+                <motion.span
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {item.name}
+                </motion.span>
+              </NavLink>
             ))}
           </div>
 
@@ -53,7 +63,7 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-amber-400"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
           </div>
         </div>
@@ -67,14 +77,20 @@ const Navigation = () => {
             className="md:hidden pb-4"
           >
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.name}
-                href={item.href}
-                className="block py-2 text-white hover:text-amber-400 transition-colors"
+                to={item.to}
+                className={({ isActive }) =>
+                  `block py-2 transition-colors ${
+                    isActive
+                      ? "text-amber-400"
+                      : "text-white hover:text-amber-400"
+                  }`
+                }
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
           </motion.div>
         )}
