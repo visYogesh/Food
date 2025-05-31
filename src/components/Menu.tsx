@@ -13,7 +13,13 @@ const categories = [
 
 const menuItems: Record<
   string,
-  { name: string; description: string; price: string; spicy: boolean; image: string }[]
+  {
+    name: string;
+    description: string;
+    price: string;
+    spicy: boolean;
+    image: string;
+  }[]
 > = {
   signatures: [
     {
@@ -21,41 +27,72 @@ const menuItems: Record<
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
-      image: "images/b.png",
+      image: "images/menu/sign/tor.jpg",
     },
     {
       name: "SMOKED DUO MELT",
       description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
       price: "$10",
       spicy: true,
-      image: placeholder,
+      image: "images/menu/sign/smo.jpg",
     },
     {
       name: "CARNIVORE CLUB",
       description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
       price: "$10",
       spicy: true,
-      image: placeholder,
+      image: "images/menu/sign/club.jpg",
+    },
+    {
+      name: "SIZZLIN’ SLAW STACK",
+      description: "Pork + Chicken, slaw, hot honey, pickled onions",
+      price: "$10",
+      spicy: true,
+      image: "images/menu/sign/stack.jpg",
+    },
+    {
+      name: "BBQ CRUNCH WRAP",
+      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
+      price: "$10",
+      spicy: true,
+      image: "images/menu/sign/wrap.jpg",
+    },
+    {
+      name: "SMOKEHOUSE PHILLY",
+      description: "Brisket + Chicken, grilled onions, chedder",
+      price: "$10",
+      spicy: true,
+      image: "images/menu/sign/philly.jpg",
+    },
+    {
+      name: "TEXAS BBQ BOMB",
+      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
+      price: "$10",
+      spicy: true,
+      image: "images/menu/sign/bomb.jpg",
     },
   ],
   fusion: [
     {
       name: "Korean BBQ Tacos",
-      description: "Smoked pork belly with kimchi slaw and gochujang aioli in corn tortillas",
+      description:
+        "Smoked pork belly with kimchi slaw and gochujang aioli in corn tortillas",
       price: "$16",
       spicy: true,
       image: "images/c.png",
     },
     {
       name: "Tandoori Smoked Chicken",
-      description: "Indian-spiced chicken smoked over applewood with mint chutney",
+      description:
+        "Indian-spiced chicken smoked over applewood with mint chutney",
       price: "$22",
       spicy: true,
       image: placeholder,
     },
     {
       name: "Miso Glazed Smoked Tofu",
-      description: "Hickory-smoked tofu with sweet miso glaze and pickled vegetables",
+      description:
+        "Hickory-smoked tofu with sweet miso glaze and pickled vegetables",
       price: "$18",
       spicy: false,
       image: placeholder,
@@ -71,7 +108,8 @@ const menuItems: Record<
     },
     {
       name: "Charred Street Corn",
-      description: "Mexican-style corn with cotija cheese, lime, and chili powder",
+      description:
+        "Mexican-style corn with cotija cheese, lime, and chili powder",
       price: "$8",
       spicy: true,
       image: placeholder,
@@ -87,21 +125,24 @@ const menuItems: Record<
   desserts: [
     {
       name: "Smoked Chocolate Tart",
-      description: "Dark chocolate tart with smoked salt and vanilla bean ice cream",
+      description:
+        "Dark chocolate tart with smoked salt and vanilla bean ice cream",
       price: "$14",
       spicy: false,
       image: "/images/gulabjamun.png",
     },
     {
       name: "Bourbon Peach Cobbler",
-      description: "Warm peach cobbler with bourbon sauce and cinnamon ice cream",
+      description:
+        "Warm peach cobbler with bourbon sauce and cinnamon ice cream",
       price: "$12",
       spicy: false,
       image: placeholder,
     },
     {
       name: "Maple Smoked Cheesecake",
-      description: "Creamy cheesecake with maple smoke essence and graham crust",
+      description:
+        "Creamy cheesecake with maple smoke essence and graham crust",
       price: "$13",
       spicy: false,
       image: placeholder,
@@ -167,11 +208,15 @@ const MenuPage = () => {
                 <motion.button
                   className="btn"
                   animate={{ scale: [1, 1.03, 1] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "easeInOut",
+                  }}
                   whileHover={{ transform: "scale(1.1)" }}
                   whileTap={{ transform: "scale(0.95)" }}
                 >
-                  <div id="container-stars">
+                  <div id="container-stars" >
                     <div id="stars">
                       <div id="glow">
                         <div className="circle"></div>
@@ -180,15 +225,19 @@ const MenuPage = () => {
                       </div>
                     </div>
                   </div>
-                  <strong>ORDER NOW</strong>
+                  <strong className="text-lg ">ORDER NOW</strong>
                 </motion.button>
               </div>
             </div>
 
             {/* Description (unchanged) */}
             <p className="text-base sm:text-lg text-amber-100 leading-relaxed mt-4">
-              <span className="block sm:inline">Each dish is a masterpiece,</span>{" "}
-              <span className="block sm:inline">crafted to deliver an unforgettable culinary journey.</span>
+              <span className="block sm:inline">
+                Each dish is a masterpiece,
+              </span>{" "}
+              <span className="block sm:inline">
+                crafted to deliver an unforgettable culinary journey.
+              </span>
             </p>
           </motion.div>
 
@@ -197,7 +246,7 @@ const MenuPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="flex flex-wrap justify-center gap-6 mb-12 "
           >
             {categories.map((category) => (
               <motion.button
@@ -217,7 +266,7 @@ const MenuPage = () => {
           </motion.div>
 
           {/* Menu Items Grid */}
-          <div className="grid grid-cols-1 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12">
             {menuItems[activeCategory].map((item, idx) => {
               const isLeft = idx % 2 === 0;
               return (
@@ -240,7 +289,11 @@ const MenuPage = () => {
                       isLeft ? "md:order-1" : "md:order-2"
                     }`}
                   >
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
                     {item.spicy && (
                       <span className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm shadow-lg flex items-center">
                         🌶️ Spicy
