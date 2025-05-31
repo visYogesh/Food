@@ -92,18 +92,26 @@ const HomePage = () => {
         </motion.div>
 
         {/* Main Heading */}
-        <motion.h1
+
+        <motion.div
           custom={0.4}
           variants={contentVariants}
-          className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent"
-          style={{
-            backgroundImage:
-              "linear-gradient(45deg, #FFD54F, #FFF, #F59E0B, #FFF)",
-            textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
-          }}
+          className="text-center"
         >
-          Smoked Fusion
-        </motion.h1>
+          <h1
+            className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
+              backgroundSize: "200% auto",
+              animation: "shine 8s linear infinite",
+              textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+            }}
+          >
+            <div>DALLA'S</div>
+            <div className="mt-2">SMOKED FUSION</div>
+          </h1>
+        </motion.div>
 
         {/* Subheading */}
         <motion.p
@@ -144,11 +152,7 @@ const HomePage = () => {
         </motion.div>
 
         {/* Pulsing Flame Icon */}
-        <motion.div
-          custom={1}
-          variants={contentVariants}
-          className="mt-16"
-        >
+        <motion.div custom={1} variants={contentVariants} className="mt-16">
           <Flame className="w-10 h-10 text-orange-500 animate-pulse" />
         </motion.div>
       </div>
@@ -157,3 +161,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
