@@ -1,114 +1,159 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { ChefHat, Flame } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const HomePage = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 0.8 }}
-    className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-amber-900"
-  >
-    <Navigation />
+const backgroundBlobs = Array.from({ length: 6 });
 
-    {[...Array(6)].map((_, i) => (
-      <motion.div
-        key={i}
-        className="absolute w-32 h-32 bg-white/5 rounded-full blur-xl"
-        animate={{
-          y: [-20, -100, -20],
-          x: [0, 30, 0],
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.1, 0.3],
-        }}
-        transition={{
-          duration: 8 + i * 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{
-          left: `${20 + i * 15}%`,
-          top: `${60 + i * 5}%`,
-        }}
-      />
-    ))}
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-    <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="mb-8"
-      >
-        <ChefHat className="w-16 h-16 text-amber-400 mx-auto mb-4" />
-      </motion.div>
+const blobVariants = {
+  animate: (i) => ({
+    y: [20, -80, 20],
+    x: [0, 40, 0],
+    scale: [1, 1.3, 1],
+    opacity: [0.4, 0.1, 0.4],
+    transition: {
+      duration: 8 + i * 1.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  }),
+};
 
-      <motion.h1
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="text-6xl md:text-8xl font-bold text-transparent mb-6 tracking-tight"
-        style={{
-          textShadow: "0 0 30px rgba(245, 158, 11, 0.5)",
-          background: "linear-gradient(45deg, #fff, #f59e0b, #fff)",
-          backgroundClip: "text",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        Smoked Fusion
-      </motion.h1>
+const contentVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay,
+      ease: "easeOut",
+    },
+  }),
+};
 
-      <motion.p
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
-        className="text-xl md:text-2xl text-amber-100 mb-8 font-light"
-      >
-        Where tradition meets innovation in every smoke-kissed bite
-      </motion.p>
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 10px 25px rgba(245, 158, 11, 0.3)",
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+  tap: { scale: 0.95, transition: { duration: 0.1 } },
+};
 
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-      >
-        <Link to="/menu">
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-amber-500/25 transition-all duration-300"
-          >
-            Our Menu
-          </motion.button>
-        </Link>
+const HomePage = () => {
+  // Parallax effect for the heading
+  const { scrollY } = useScroll();
+  const yRange = useTransform(scrollY, [0, 300], [0, -50]);
 
-        <Link to="/about">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-amber-400 text-amber-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-amber-400 hover:text-black transition-all duration-300"
-          >
-            Our Story
-          </motion.button>
-        </Link>
-      </motion.div>
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="relative w-full min-h-screen bg-gradient-to-br from-black via-gray-900 to-amber-900 overflow-hidden"
+    >
+      <Navigation />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="mt-16 flex justify-center"
-      >
-        <Flame className="w-8 h-8 text-orange-500 animate-pulse" />
-      </motion.div>
-    </div>
-  </motion.div>
-);
+      {/* Background Animated Blobs */}
+      {backgroundBlobs.map((_, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          variants={blobVariants}
+          animate="animate"
+          className="absolute w-48 h-48 bg-white/5 rounded-full blur-3xl"
+          style={{
+            left: `${15 + i * 14}%`,
+            top: `${65 - i * 6}%`,
+          }}
+        />
+      ))}
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-32 mx-auto max-w-5xl">
+        {/* Chef Hat Icon */}
+        <motion.div
+          custom={0.2}
+          variants={contentVariants}
+          className="mb-6"
+          style={{ y: yRange }}
+        >
+          <ChefHat className="w-20 h-20 text-amber-400 mx-auto animate-bounce" />
+        </motion.div>
+
+        {/* Main Heading */}
+        <motion.h1
+          custom={0.4}
+          variants={contentVariants}
+          className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent"
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg, #FFD54F, #FFF, #F59E0B, #FFF)",
+            textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+          }}
+        >
+          Smoked Fusion
+        </motion.h1>
+
+        {/* Subheading */}
+        <motion.p
+          custom={0.6}
+          variants={contentVariants}
+          className="mt-4 text-lg sm:text-xl md:text-2xl text-amber-100 font-light max-w-2xl"
+        >
+          Where tradition meets innovation in every smoke-kissed bite.
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          custom={0.8}
+          variants={contentVariants}
+          className="mt-8 flex flex-col sm:flex-row gap-6"
+        >
+          <Link to="/menu">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg transition-all duration-300"
+            >
+              Our Menu
+            </motion.button>
+          </Link>
+
+          <Link to="/about">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="border-2 border-amber-400 text-amber-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-400 hover:text-black transition-all duration-300"
+            >
+              Our Story
+            </motion.button>
+          </Link>
+        </motion.div>
+
+        {/* Pulsing Flame Icon */}
+        <motion.div
+          custom={1}
+          variants={contentVariants}
+          className="mt-16"
+        >
+          <Flame className="w-10 h-10 text-orange-500 animate-pulse" />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default HomePage;
