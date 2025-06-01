@@ -141,8 +141,8 @@ const navItems = [
 ];
 
 const dropdownItems = [
-  { name: "Regular", to: "/menu/regular" },
-  { name: "Halal", to: "/menu/special" },
+  { name: "Regular Menu", to: "/menu/regular" },
+  { name: "Halal Menu", to: "/menu/special" },
 ];
 
 const Navigation = () => {
