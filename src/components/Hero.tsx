@@ -311,7 +311,7 @@ const HomePage = () => {
         <motion.div
           key={i}
           custom={i}
-          variants={blobVariants}
+          // variants={blobVariants}
           animate="animate"
           className="absolute w-48 h-48 bg-white/5 rounded-full blur-3xl"
           style={{
@@ -322,7 +322,7 @@ const HomePage = () => {
       ))}
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-32 mx-auto max-w-5xl">
+      <div className="relative z-10 flex flex-col items-center justify-start text-center px-6 pt-32 pb-0 mx-auto max-w-5xl">
         {/* Chef Hat Icon */}
         <motion.div
           custom={0.2}
@@ -397,6 +397,14 @@ const HomePage = () => {
         <motion.div custom={1} variants={contentVariants} className="mt-16">
           <Flame className="w-10 h-10 text-orange-500 animate-pulse" />
         </motion.div>
+
+        {/* <div>
+          <h1 className="text-5xl text-center text-green">
+            Hello
+          </h1>
+        </div>
+
+        */}
       </div>
     </motion.div>
   );

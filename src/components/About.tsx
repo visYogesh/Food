@@ -35,7 +35,7 @@ const AboutPage = () => (
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 py-8"
           >
             Crafted with love <span className="text-amber-600">Passion</span>
           </h2>

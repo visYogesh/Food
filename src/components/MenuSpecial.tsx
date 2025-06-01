@@ -23,53 +23,53 @@ const menuItems: Record<
 > = {
   signatures: [
     {
-      name: "MEAT TORNADO",
+      name: "MEAT TORNADO special",
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/tor.jpg",
+      image: "/images/menu/sign/tor.jpg",
     },
     {
       name: "SMOKED DUO MELT",
       description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/smo.jpg",
+      image: "/images/menu/sign/smo.jpg",
     },
     {
       name: "CARNIVORE CLUB",
       description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/club.jpg",
+      image: "/images/menu/sign/club.jpg",
     },
     {
       name: "SIZZLIN’ SLAW STACK",
       description: "Pork + Chicken, slaw, hot honey, pickled onions",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/stack.jpg",
+      image: "/images/menu/sign/stack.jpg",
     },
     {
       name: "BBQ CRUNCH WRAP",
       description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/wrap.jpg",
+      image: "/images/menu/sign/wrap.jpg",
     },
     {
       name: "SMOKEHOUSE PHILLY",
       description: "Brisket + Chicken, grilled onions, chedder",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/philly.jpg",
+      image: "/images/menu/sign/philly.jpg",
     },
     {
       name: "TEXAS BBQ BOMB",
       description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
       price: "$10",
       spicy: true,
-      image: "images/menu/sign/bomb.jpg",
+      image: "/images/menu/sign/bomb.jpg",
     },
   ],
   fusion: [
@@ -79,7 +79,7 @@ const menuItems: Record<
         "Smoked pork belly with kimchi slaw and gochujang aioli in corn tortillas",
       price: "$16",
       spicy: true,
-      image: "images/c.png",
+      image: "/images/c.png",
     },
     {
       name: "Tandoori Smoked Chicken",
@@ -201,7 +201,7 @@ const MenuPage = () => {
           >
             <div className="flex justify-between items-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-amber-300">
-                Our Menu
+                Halal Menu
               </h2>
               {/* Mobile/Tablet inline “Order Now” (visible only on small screens) */}
               <div className="block md:hidden">
