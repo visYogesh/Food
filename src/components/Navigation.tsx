@@ -142,7 +142,7 @@ const navItems = [
 
 const dropdownItems = [
   { name: "Regular", to: "/menu/regular" },
-  { name: "Special", to: "/menu/special" },
+  { name: "Halal", to: "/menu/special" },
 ];
 
 const Navigation = () => {
