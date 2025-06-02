@@ -784,12 +784,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       {/* Note: Ensure you have a global CSS file that defines the "shine" keyframes animation: */}
@@ -808,10 +808,11 @@ const HomePage: React.FC<HomePageProps> = () => {
         >
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        {/* opacity */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="my-48 relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text"
+            className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text"
             style={{
               backgroundImage:
                 "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
@@ -828,29 +829,51 @@ const HomePage: React.FC<HomePageProps> = () => {
             SMOKED FUSION
           </motion.h1>
           <div className="mt-12 flex space-x-6">
+            {/* Order Button */}
             <motion.button
-              className="px-6 py-3 border text-white font-semibold uppercase rounded-lg"
+              className="relative px-6 py-3 border border-white text-white font-semibold uppercase rounded-lg overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1, rotate: -1 }}
               whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/menu')}
-
+              onClick={() => navigate("/menu")}
             >
-              Menu
+              {/* Glow Layer */}
+              <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-300 rounded-lg blur-sm" />
+
+              {/* Shimmer Effect */}
+              <span
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+                 translate-x-[-100%] group-hover:animate-[shimmer_2s_linear_infinite] rounded-lg"
+              ></span>
+
+              {/* Text */}
+              <span className="relative z-10 text-white group-hover:text-amber-400 tracking-wider">
+                Order
+              </span>
             </motion.button>
+
+            {/* Story Button */}
             <motion.button
-              className="px-6 py-3 border bg-transparent  border-white text-white font-semibold uppercase rounded-lg "
+              className="relative px-6 py-3 border border-white text-white font-semibold uppercase rounded-lg overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 1 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/legacy')}
-
+              onClick={() => navigate("/legacy")}
             >
-              Story
+              {/* Neon Glow */}
+              <span className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 transition duration-300 blur-md rounded-lg" />
+
+              {/* Flicker Glow */}
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 animate-pulse blur-sm rounded-lg" />
+
+              {/* Text */}
+              <span className="relative z-10 text-white group-hover:text-amber-400 tracking-wider">
+                Story
+              </span>
             </motion.button>
           </div>
         </div>
@@ -885,28 +908,48 @@ const HomePage: React.FC<HomePageProps> = () => {
               SMOKED FUSION
             </motion.h1>
             <div className="mt-12 flex space-x-6">
+              {/* Order Button */}
               <motion.button
-                className="px-8 py-4 border  text-white font-semibold uppercase rounded-lg"
+                className="relative px-8 py-4 border text-white font-semibold uppercase rounded-lg overflow-hidden group transition duration-300"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 1 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.08, rotate: -1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/menu')}
+                onClick={() => navigate("/menu")}
               >
-                Order
+                {/* Soft Glow */}
+                <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-300 blur-sm rounded-lg" />
+
+                {/* Animated Shine */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[slide_1.5s_linear_infinite] rounded-lg" />
+
+                {/* Button Text */}
+                <span className="relative z-10 group-hover:text-amber-400 tracking-wide">
+                  Order
+                </span>
               </motion.button>
+
+              {/* Story Button */}
               <motion.button
-                className="px-8 py-4 bg-transparent border text-white font-semibold uppercase rounded-lg"
+                className="relative px-8 py-4 bg-transparent border text-white font-semibold uppercase rounded-lg overflow-hidden group transition duration-300"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 1.3 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.08, rotate: 1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/legacy')}
-
+                onClick={() => navigate("/legacy")}
               >
-                Story
+                {/* Neon Flicker */}
+                <span className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 transition duration-300 blur-md rounded-lg" />
+
+                {/* Flicker Glow */}
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 animate-pulse blur-sm rounded-lg" />
+
+                {/* Button Text */}
+                <span className="relative z-10 group-hover:text-amber-300 tracking-wide">
+                  Story
+                </span>
               </motion.button>
             </div>
           </div>
