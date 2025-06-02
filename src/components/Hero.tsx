@@ -408,7 +408,6 @@
 
 // export default HomePage;
 
-
 // import { motion, useScroll, useTransform } from "framer-motion";
 // import Navigation from "../components/Navigation";
 // import { ChefHat, Flame } from "lucide-react";
@@ -481,20 +480,20 @@
 //         muted
 //         playsInline
 //         className="
-//           absolute top-0 left-0 
+//           absolute top-0 left-0
 //           w-auto h-auto object-cover object-top opacity-30 z-0
 
 //           /* On small screens, use object-top so we see the very top of the video */
 //           sm:w-full sm:h-full sm:object-cover sm:object-top sm:scale-100
 
 //           /* On md+, shift the “window” downward a bit so you’re looking at roughly the top 50% */
-//           md:w-full md:h-full md:object-cover 
+//           md:w-full md:h-full md:object-cover
 //         "
-//         /* At md and up, we override objectPosition to “50% 25%”—that vertically shifts 
+//         /* At md and up, we override objectPosition to “50% 25%”—that vertically shifts
 //            the video so you’re centered around the top half instead of the dead center. */
 //         style={{
-//           /* 
-//            * On md+: objectPosition: "50% 25%" 
+//           /*
+//            * On md+: objectPosition: "50% 25%"
 //            *   → horizontally center, vertically 25% down (so the top half is shown).
 //            *
 //            * On sm: we’re just using object-top from Tailwind (“objectPosition: top center”).
@@ -559,7 +558,7 @@
 //           variants={contentVariants}
 //           className="mt-4 text-lg sm:text-xl md:text-2xl text-amber-100 font-light max-w-2xl"
 //         >
-          
+
 //         </motion.p>
 
 //         {/* Action Buttons */}
@@ -590,7 +589,6 @@
 //           </Link>
 //         </motion.div>
 
-     
 //         {/* Pulsing Flame Icon */}
 //         {/* <motion.div custom={1} variants={contentVariants} className="mt-16">
 //           <Flame className="w-10 h-10 text-orange-500 animate-pulse" />
@@ -602,54 +600,218 @@
 
 // export default HomePage;
 
+// import { motion } from "framer-motion";
+// import { useEffect } from "react";
+// import Navigation from "../components/Navigation";
+
+// const HomePage = () => {
+
+//   useEffect(() => {
+//     // Disable scroll
+//     document.body.style.overflow = "hidden";
+
+//     // Re-enable scroll on cleanup
+//     return () => {
+//       document.body.style.overflow = "auto";
+//     };
+//   }, []);
+//   return (
+//     <motion.div
+//       initial="hidden"
+//       animate="visible"
+//       className="relative bg-black h-screen flex items-center justify-center overflow-hidden"
+//     >
+//       <Navigation />
+
+//       {/* ─── Responsive Background Video ─── */}
+//       <video
+//         autoPlay
+//         loop
+//         muted
+//         playsInline
+//         className="
+//           absolute inset-0
+//           w-auto h-auto object-cover object-top opacity-30 z-0
+//           sm:w-full sm:h-full sm:object-cover sm:object-top sm:scale-100
+//           md:w-full md:h-full md:object-cover
+//         "
+//         style={{
+//           objectPosition: window.innerWidth >= 768 ? "50% 50%" : "5% 0%",
+//         }}
+//       >
+//         <source src="/images/sum_bur.mp4" type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </video>
+
+//       {/* ─── Centered Content ─── */}
+//       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 mx-auto max-w-5xl">
+//         <motion.div custom={0.4} className="w-full">
+//           <h1
+//             className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent leading-tight"
+//             style={{
+//               backgroundImage:
+//                 "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
+//               backgroundSize: "200% auto",
+//               animation: "shine 8s linear infinite",
+//               textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+//             }}
+//           >
+//             <div className="font-mono mt-96 sm:mt-44">DALLAS</div>
+//             <div className="font-mono">SMOKED</div>
+//             <div className="font-mono">FUSION</div>
+//           </h1>
+//         </motion.div>
+//       </div>
+//     </motion.div>
+//   );
+// };
+
+// export default HomePage;
+
+// import React from 'react';
+// import { motion } from 'framer-motion';
+// import Navigation from "../components/Navigation";
+
+// interface HomePageProps {}
+
+// const HomePage: React.FC<HomePageProps> = () => {
+//   return (
+//     <>
+//       {/* Mobile Only: Video Background (screens smaller than md) */}
+//       <div className="relative w-full h-screen md:hidden overflow-hidden">
+//         <Navigation />
+//         <video
+//           className="absolute inset-0 w-full h-full object-cover object-top"
+//           src="/images/sum_bur.mp4"
+//           autoPlay
+//           loop
+//           muted
+//           playsInline
+//         >
+//           Your browser does not support the video tag.
+//         </video>
+//         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+//         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+//           <motion.h1
+//             className="text-white font-bold uppercase text-5xl sm:text-6xl leading-tight"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 1, ease: 'easeOut' }}
+//           >
+//             DALLAS
+//             <br />
+//             SMOKED FUSION
+//           </motion.h1>
+//           <div className="mt-12 flex space-x-6">
+//             <motion.button
+//               className="px-6 py-3 bg-red-600 text-white font-semibold uppercase rounded-lg hover:bg-red-700"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 1, ease: 'easeOut', delay: 0.8 }}
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               Menu
+//             </motion.button>
+//             <motion.button
+//               className="px-6 py-3 bg-transparent border border-white text-white font-semibold uppercase rounded-lg hover:bg-white hover:text-black"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 1, ease: 'easeOut', delay: 1 }}
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//             >
+//               Story
+//             </motion.button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Tablets and Larger: Image Background (screens md and up) */}
+//       <div className="hidden md:block relative w-full h-screen overflow-hidden">
+//         <Navigation />
+//         <img
+//           className="absolute inset-0 w-full h-full object-cover"
+//           src="/images/menu/blap.jpg"
+//           alt="Background"
+//         />
+//         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+//         <div className="relative z-10 flex items-center justify-start w-full h-full">
+//           <div className="w-1/2 pl-16">
+//             <motion.h1
+//               className="text-white font-bold uppercase text-7xl leading-tight text-left"
+//               initial={{ opacity: 0, x: -20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+
+//             >
+//               DALLAS
+//               <br />
+//               SMOKED FUSION
+//             </motion.h1>
+//             <div className="mt-12 flex space-x-6">
+//               <motion.button
+//                 className="px-8 py-4 bg-red-600 text-white font-semibold uppercase rounded-lg hover:bg-red-700"
+//                 initial={{ opacity: 0, x: -20 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 transition={{ duration: 1, ease: 'easeOut', delay: 1 }}
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//               >
+//                 Menu
+//               </motion.button>
+//               <motion.button
+//                 className="px-8 py-4 bg-transparent border border-white text-white font-semibold uppercase rounded-lg hover:bg-white hover:text-black"
+//                 initial={{ opacity: 0, x: -20 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 transition={{ duration: 1, ease: 'easeOut', delay: 1.3 }}
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//               >
+//                 Story
+//               </motion.button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default HomePage;
+
+// final
+import React from "react";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Navigation from "../components/Navigation";
+import { useNavigate } from 'react-router-dom'
 
-const HomePage = () => {
+interface HomePageProps {}
 
-  useEffect(() => {
-    // Disable scroll
-    document.body.style.overflow = "hidden";
-
-    // Re-enable scroll on cleanup
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+const HomePage: React.FC<HomePageProps> = () => {
+  const navigate = useNavigate()
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      className="relative bg-black h-screen flex items-center justify-center overflow-hidden"
-    >
-      <Navigation />
+    <>
+      {/* Note: Ensure you have a global CSS file that defines the "shine" keyframes animation: */}
+      {/* @keyframes shine { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } } */}
 
-      {/* ─── Responsive Background Video ─── */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="
-          absolute inset-0
-          w-auto h-auto object-cover object-top opacity-30 z-0
-          sm:w-full sm:h-full sm:object-cover sm:object-top sm:scale-100
-          md:w-full md:h-full md:object-cover
-        "
-        style={{
-          objectPosition: window.innerWidth >= 768 ? "50% 50%" : "5% 0%",
-        }}
-      >
-        <source src="/images/sum_bur.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* ─── Centered Content ─── */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 mx-auto max-w-5xl">
-        <motion.div custom={0.4} className="w-full">
-          <h1
-            className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent leading-tight"
+      {/* Mobile Only: Video Background (screens smaller than md) */}
+      <div className="relative w-full h-screen md:hidden overflow-hidden">
+        <Navigation />
+        <video
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          src="/images/sum_bur.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="my-48 relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text"
             style={{
               backgroundImage:
                 "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
@@ -657,14 +819,100 @@ const HomePage = () => {
               animation: "shine 8s linear infinite",
               textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
             }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="font-mono mt-96 sm:mt-44">DALLA'S</div>
-            <div className="font-mono">SMOKED</div>
-            <div className="font-mono">FUSION</div>
-          </h1>
-        </motion.div>
+            DALLAS
+            <br />
+            SMOKED FUSION
+          </motion.h1>
+          <div className="mt-12 flex space-x-6">
+            <motion.button
+              className="px-6 py-3 border text-white font-semibold uppercase rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/menu')}
+
+            >
+              Menu
+            </motion.button>
+            <motion.button
+              className="px-6 py-3 border bg-transparent  border-white text-white font-semibold uppercase rounded-lg "
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/legacy')}
+
+            >
+              Story
+            </motion.button>
+          </div>
+        </div>
       </div>
-    </motion.div>
+
+      {/* Tablets and Larger: Image Background (screens md and up) */}
+      <div className="hidden md:block relative w-full h-screen overflow-hidden">
+        <Navigation />
+        <img
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/images/menu/blap.jpg"
+          alt="Background"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="relative z-10 flex items-center justify-start w-full h-full">
+          <div className="w-1/2 pl-16">
+            <motion.h1
+              className="py-20 font-bold uppercase text-7xl leading-tight text-left bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
+                backgroundSize: "200% auto",
+                animation: "shine 8s linear infinite",
+                textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+              }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+            >
+              DALLAS
+              <br />
+              SMOKED FUSION
+            </motion.h1>
+            <div className="mt-12 flex space-x-6">
+              <motion.button
+                className="px-8 py-4 border  text-white font-semibold uppercase rounded-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/menu')}
+              >
+                Order
+              </motion.button>
+              <motion.button
+                className="px-8 py-4 bg-transparent border text-white font-semibold uppercase rounded-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/legacy')}
+
+              >
+                Story
+              </motion.button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

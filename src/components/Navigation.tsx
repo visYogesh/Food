@@ -135,7 +135,7 @@ import fireVideo from "/images/fired1.mp4";
 const navItems = [
   { name: "Home", to: "/" },
   { name: "Menu", to: "/menu" }, // This will have the hover‐dropdown
-  { name: "Story", to: "/about" },
+  { name: "Catering", to: "/catering" },
   { name: "Legacy", to: "/legacy" },
   { name: "Contact", to: "/contact" },
 ];

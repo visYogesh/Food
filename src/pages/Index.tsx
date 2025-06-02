@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import Hero from "../components/Hero";
-import About from "../components/About";
+import About from "../components/Catering";
 import Menu from "../components/Menu";
 import Legacy from "../components/Legacy";
 import Contact from "../components/Contact";

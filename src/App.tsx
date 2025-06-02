@@ -13,7 +13,6 @@ import ScrollToTop from "./components/ScrollToTop";
 
 // pages/components
 import Home from "./components/Hero";
-import About from "./components/About";
 import Legacy from "./components/Legacy";
 import Contact from "./components/Contact";
 import NotFound from "./pages/NotFound";
@@ -21,6 +20,7 @@ import NotFound from "./pages/NotFound";
 // New: split Menu into two subpages
 import MenuRegular from "./components/MenuRegular";
 import MenuSpecial from "./components/MenuSpecial";
+import Catering from "./components/Catering";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +34,7 @@ const App = () => (
         <Routes>
           {/* Top‐level pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/catering" element={<Catering />} />
           <Route path="/legacy" element={<Legacy />} />
           <Route path="/contact" element={<Contact />} />
 
