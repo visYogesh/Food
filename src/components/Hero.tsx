@@ -795,6 +795,7 @@ const HomePage: React.FC<HomePageProps> = () => {
       {/* Note: Ensure you have a global CSS file that defines the "shine" keyframes animation: */}
       {/* @keyframes shine { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } } */}
 
+
       {/* Mobile Only: Video Background (screens smaller than md) */}
       <div className="relative w-full h-screen md:hidden overflow-hidden">
         <Navigation />
