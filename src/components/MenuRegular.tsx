@@ -23,7 +23,7 @@ const menuItems: Record<
 > = {
   signatures: [
     {
-      name: "MEAT TORNADO  1",
+      name: "MEAT TORNADO",
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
