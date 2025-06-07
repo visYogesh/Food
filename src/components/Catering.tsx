@@ -350,7 +350,6 @@ const Services: React.FC = () => {
                 Any Event. Any Size. Any Time.
               </p>
 
-              
               <div className="py-2  mt-6 flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => (window.location.href = "/catering/order")}
@@ -446,8 +445,8 @@ const Services: React.FC = () => {
               <p className="mt-2 text-black text-xl py-8">
                 Let our catering specialists handle every detail, from
                 customizable menus and attentive service to our famous barbecue
-                buffets and interactive stations. Trust Smoked Fusion to create a
-                remarkable experience for you and your guests on your special
+                buffets and interactive stations. Trust Smoked Fusion to create
+                a remarkable experience for you and your guests on your special
                 day with better smoke🔥.
               </p>
               <button
@@ -463,10 +462,12 @@ const Services: React.FC = () => {
 
       <div className="w-full mt-8">
         <div className="text-white text-xl font-bold  text-center decoration-2 underline decoration-amber-400">
-          <a href="/catering/faq" target="_blank">
-
-          <p>Have questions, want more info? Check out our FREQUENTLY ASKED QUESTIONS</p>
-          </a>
+          <Link to="/catering/faq">
+            <p>
+              Have questions, want more info? Check out our FREQUENTLY ASKED
+              QUESTIONS
+            </p>
+          </Link>
         </div>
       </div>
     </div>
