@@ -39,7 +39,7 @@ const CARDS: ServiceCardData[] = [
     image: "/images/card/card2.png",
 
     frontDescription:
-      "We’ll deliver and set up or package perfectly for you to pick up, whatever is most convenient for you and your event. The Classic Buffet is the perfect barbecue meal for corporate events or family gatherings of 10 or more people.",
+      "We’ll deliver and set up or package perfectly for you to pick up. The Classic Buffet is the perfect barbecue meal for corporate events or family gatherings of 10 or more people.",
     frontFooter: "Delivery or Pick Up. Serves 10",
     backItems: [
       "• Choice of Two Meats (Pulled Pork, Brisket, Chicken Breast, Sausage)",
@@ -461,15 +461,14 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      {/* <div className="py-12 w-full mt-12">
-        <div className="order-1 md:order-2 w-full md:w-1/2 flex justify-end">
-          <img
-            src="/images/dick.bin"
-            alt="Barbecue catering"
-            className="w-[850px] max-w-md md:max-w-none rounded-3xl shadow-lg object-cover"
-          />
+      <div className="w-full mt-8">
+        <div className="text-white text-xl font-bold  text-center decoration-2 underline decoration-amber-400">
+          <a href="/catering/faq" target="_blank">
+
+          <p>Have questions, want more info? Check out our FREQUENTLY ASKED QUESTIONS</p>
+          </a>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

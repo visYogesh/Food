@@ -17,10 +17,12 @@ import Legacy from "./components/Legacy";
 import Contact from "./components/Contact";
 import NotFound from "./pages/NotFound";
 
-// New: split Menu into two subpages
+// New pages
 import MenuRegular from "./components/MenuRegular";
 import MenuSpecial from "./components/MenuSpecial";
 import Catering from "./components/Catering";
+import FAQ from "./components/FAQ";
+// import InfoPage from "./components/InfoPage";
 
 const queryClient = new QueryClient();
 
@@ -38,13 +40,19 @@ const App = () => (
           <Route path="/legacy" element={<Legacy />} />
           <Route path="/contact" element={<Contact />} />
 
+          {/* FAQ page */}
+          <Route path="/catering/faq" element={<FAQ />} />
+
+          {/* Info page that toggles FAQ inline */}
+          {/* <Route path="/info" element={<InfoPage />} /> */}
+
           {/* Redirect /menu → /menu/regular */}
           <Route
             path="/menu"
             element={<Navigate to="/menu/regular" replace />}
           />
 
-          {/* Now explicitly render the two submenu routes */}
+          {/* Explicit submenu routes */}
           <Route path="/menu/regular" element={<MenuRegular />} />
           <Route path="/menu/special" element={<MenuSpecial />} />
 
