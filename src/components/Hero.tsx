@@ -966,6 +966,7 @@ import React, { useCallback, CSSProperties } from "react";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { useNavigate } from "react-router-dom";
+import bg_img from "/images/blap.jpg"
 
 interface HomePageProps {}
 
@@ -1060,7 +1061,7 @@ const DesktopHeader = React.memo(({ onOrder, onStory }: { onOrder: () => void; o
     {/* Lazy-load the image so it doesn’t block initial paint */}
     <img
       className="absolute inset-0 w-full h-full object-cover"
-      src="/images/blap.jpg"
+      src={bg_img}
       alt="Background"
       loading="lazy"
     />
