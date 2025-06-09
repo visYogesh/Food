@@ -5,19 +5,15 @@ import { useState } from "react";
 const placeholder = "images/b.png";
 
 const categories = [
-  { id: "signatures", name: "Sandwich - Chicken", icon: "/images/d1.png" },
-  { id: "fusion", name: "Sandwich - Veggie", icon: "/images/d1.png" },
-  {
-    id: "sides3",
-    name: "Sandwich - 🏠 House Specials",
-    icon: "/images/d1.png",
-  },
-  { id: "f", name: "Smoked BBQ Stacks", icon: "/images/d1.png" },
-  { id: "f3", name: "Signature Meats", icon: "/images/d1.png" },
-  { id: "desdserts", name: "Barbecue Bakers Beast", icon: "/images/d1.png" },
-  { id: "sides", name: "Sides", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "drinks", name: "Drinks", icon: "/images/d1.png" },
+  { id: "chicken", name: "Sandwich - Chicken", icon: "/images/menu/icons/chicken.png" },
+  { id: "turkey", name: "Sandwich - Turkey", icon: "/images/menu/icons/turkey.png" },
+  { id: "signatures", name: "Sandwich - House Specials",icon: "/images/menu/icons/specials.png"},
+  { id: "smokedbbq", name: "Smoked BBQ Stacks", icon: "/images/menu/icons/smokedmeat.png" },
+  { id: "signatuemeats", name: "Signature Meats", icon: "/images/menu/icons/signaturemeats.png" },
+  { id: "barbecuebakers", name: "Barbecue Bakers Beast", icon: "/images/menu/icons/barbecuebeast.png" },
+  { id: "sides", name: "Sides", icon: "/images/menu/icons/sides.png" },
+  { id: "desserts", name: "Sweet Endings", icon: "/images/menu/icons/desserts.png" },
+  { id: "drinks", name: "Drinks", icon: "/images/menu/icons/drinks.png" },
 ];
 
 const menuItems: Record<
@@ -32,58 +28,126 @@ const menuItems: Record<
     height: string;
   }[]
 > = {
+  chicken: [
+    {
+      name: "CLASSIC CHICKEN SANDWICH",
+      description: "Buttered buns, smoked chicken",
+      price: "$16",
+      spicy: true,
+      image: "/images/menu/regular/chicken/classicchickensandwich.png",
+      width: "70px",
+      height: "100px",
+    },
+    {
+      name: "SWEET HEAT CHICKEN",
+      description: "Pulled chicken, hot honey glaze, toping lettuce, mayo",
+      price: "$22",
+      spicy: true,
+      image: "/images/menu/regular/chicken/sweetheatchicken.png",
+      width: "100px",
+      height: "100px",
+    },
+    {
+      name: "CRISPY KICK",
+      description: "Chicken, buffalo + BBQ mix, ranch, cole slaw",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/chicken/crispykick.png",
+      width: "100px",
+      height: "100px",
+    },
+    {
+      name: "CRISPY CHICKEN CRUNCH",
+      description: "chicken, comeback sauce, crispy onions, and pickles",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/chicken/crispychickencrunch.png",
+      width: "80px",
+      height: "100px",
+    },
+    {
+      name: "SPICY CRISPY",
+      description: "CRISPY CHICKEN, NASHVILLE,",
+      price: "$16",
+      spicy: true,
+      image: "/images/menu/regular/chicken/spicycrispy.png",
+      width: "100px",
+      height: "100px",
+    },
+    {
+      name: "NASHVILLE-STYLE HOT CHICKEN",
+      description: "Spicy, crispy fried chicken with bold Nashville heat",
+      price: "$22",
+      spicy: true,
+      image: "/images/menu/regular/chicken/nashvillestylehotchicken.png",
+      width: "100px",
+      height: "100px",
+    },
+    {
+      name: "SWEET N SPICY",
+      description: "SPICY BBQ SAUCE, BUFFALO, HONEY, TOPING COLESLAW OPTIONAL",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/chicken/sweetnspicy.png",
+      width: "100px",
+      height: "100px",
+    },
+    {
+      name: "SOUTHERN HEAT STACK",
+      description: "COLESLAW, PICKLES, NASHVILLE HOT SAUCE, RANCH DRIZZLE",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/chicken/southernheatstack.png",
+      width: "100px",
+      height: "100px",
+    },
+  ],
+  turkey: [
+    {
+      name: "SWEET HEAT TURKEY",
+      description: "Turkey, spicy BBQ, candied jalapeños, slaw",
+      price: "$16",
+      spicy: true,
+      image: "/images/menu/regular/turkey/sweetheatturkey.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "TURKEY CLUB DELUXE",
+      description: "Turkey, crispy bacon, green onions",
+      price: "$22",
+      spicy: true,
+      image: "/images/menu/regular/turkey/turkeyclubdeluxe.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SMOKEHOUSE TURKEY",
+      description: "Smoked Fusion Special Turkish Sandwich",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/turkey/smokehouseturkey.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BUFFALO GARDEN STACK",
+      description:
+        "Turkey sausage, buffalo sauce, lettuce, ranch, crispy onions",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/turkey/buffalogardenstack.png",
+      width: "",
+      height: "",
+    },
+  ],
   signatures: [
     {
       name: "MEAT TORNADO",
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
-      image: "/images/d1.png",
-      width: "",
-      height: "",
-    },
-    {
-      name: "SMOKED DUO MELT",
-      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
-      price: "$10",
-      spicy: true,
-      image: "/images/d1.png",
-      width: "",
-      height: "",
-    },
-    {
-      name: "CARNIVORE CLUB",
-      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
-      price: "$10",
-      spicy: true,
-      image: "/images/d1.png",
-      width: "",
-      height: "",
-    },
-    {
-      name: "SIZZLIN’ SLAW STACK",
-      description: "Pork + Chicken, slaw, hot honey, pickled onions",
-      price: "$10",
-      spicy: true,
-      image: "/images/d1.png",
-      width: "",
-      height: "",
-    },
-    {
-      name: "BBQ CRUNCH WRAP",
-      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
-      price: "$10",
-      spicy: true,
-      image: "/images/d1.png",
-      width: "",
-      height: "",
-    },
-    {
-      name: "SMOKEHOUSE PHILLY",
-      description: "Brisket + Chicken, grilled onions, chedder",
-      price: "$10",
-      spicy: true,
-      image: "/images/d1.png",
+      image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
     },
@@ -92,39 +156,255 @@ const menuItems: Record<
       description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
       price: "$10",
       spicy: true,
-      image: "/images/d1.png",
+      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "CARNIVORE CLUB",
+      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/carnivoreclub.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SIZZLIN’ SLAW STACK",
+      description: "Pork + Chicken, slaw, hot honey, pickled onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BBQ CRUNCH WRAP",
+      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "SMOKED DUO MELT",
+      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokedduomelt.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SMOKEHOUSE PHILLY",
+      description: "Brisket + Chicken, grilled onions, chedder",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
     },
   ],
-  fusion: [
+  smokedbbq: [
     {
-      name: "Korean BBQ Tacos",
-      description:
-        "Smoked pork belly with kimchi slaw and gochujang aioli in corn tortillas",
-      price: "$16",
+      name: "MEAT TORNADO",
+      description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
+      price: "$10",
       spicy: true,
-      image: "/images/c.png",
+      image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
     },
     {
-      name: "Tandoori Smoked Chicken",
-      description:
-        "Indian-spiced chicken smoked over applewood with mint chutney",
-      price: "$22",
+      name: "TEXAS BBQ BOMB",
+      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
+      price: "$10",
       spicy: true,
-      image: placeholder,
+      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "CARNIVORE CLUB",
+      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/carnivoreclub.png",
       width: "",
       height: "",
     },
     {
-      name: "Miso Glazed Smoked Tofu",
-      description:
-        "Hickory-smoked tofu with sweet miso glaze and pickled vegetables",
-      price: "$18",
-      spicy: false,
-      image: placeholder,
+      name: "SIZZLIN’ SLAW STACK",
+      description: "Pork + Chicken, slaw, hot honey, pickled onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BBQ CRUNCH WRAP",
+      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "SMOKED DUO MELT",
+      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokedduomelt.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SMOKEHOUSE PHILLY",
+      description: "Brisket + Chicken, grilled onions, chedder",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokehousephilly.png",
+      width: "",
+      height: "",
+    },
+  ],
+  signatuemeats: [
+    {
+      name: "MEAT TORNADO",
+      description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/meattornado.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "TEXAS BBQ BOMB",
+      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "CARNIVORE CLUB",
+      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/carnivoreclub.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SIZZLIN’ SLAW STACK",
+      description: "Pork + Chicken, slaw, hot honey, pickled onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BBQ CRUNCH WRAP",
+      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "SMOKED DUO MELT",
+      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokedduomelt.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SMOKEHOUSE PHILLY",
+      description: "Brisket + Chicken, grilled onions, chedder",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokehousephilly.png",
+      width: "",
+      height: "",
+    },
+  ],
+  barbecuebakers: [
+    {
+      name: "MEAT TORNADO",
+      description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/meattornado.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "TEXAS BBQ BOMB",
+      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "CARNIVORE CLUB",
+      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/carnivoreclub.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SIZZLIN’ SLAW STACK",
+      description: "Pork + Chicken, slaw, hot honey, pickled onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BBQ CRUNCH WRAP",
+      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      width: "",
+      height: "",
+    },
+
+    {
+      name: "SMOKED DUO MELT",
+      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokedduomelt.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SMOKEHOUSE PHILLY",
+      description: "Brisket + Chicken, grilled onions, chedder",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
     },
@@ -448,18 +728,37 @@ const menuItems: Record<
 
 const MenuPage: React.FC = () => {
   const [openCat, setOpenCat] = useState<string | null>(null);
-  const toggleCat = (id: string) =>
+
+  const toggleCat = (id: string) => {
+    const wasOpen = openCat === id;
     setOpenCat((prev) => (prev === id ? null : id));
+
+    // If opening a new category (not closing), scroll it into view
+    if (!wasOpen) {
+      setTimeout(() => {
+        const element = document.getElementById(`category-${id}`);
+        if (element) {
+          const headerHeight = 120; // Account for fixed navigation header
+          const elementTop = element.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: elementTop,
+            behavior: "smooth",
+          });
+        }
+      }, 350); // Wait for animation to complete (0.3s + buffer)
+    }
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-amber-900 text-amber-100"
+      className="select-non relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-amber-900 text-amber-100"
     >
       <Navigation />
-      {/* …your existing “Order Now” code… */}
+      {/* …your existing "Order Now" code… */}
 
       <section className="pt-28 md:pt-32 pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -470,7 +769,7 @@ const MenuPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-between items-center"
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-amber-500">
               Our Menu
             </h2>
             <div className="flex flex-wrap gap-4 ml-auto">
@@ -511,6 +810,7 @@ const MenuPage: React.FC = () => {
               return (
                 <div
                   key={id}
+                  id={`category-${id}`} // Added ID for scrolling reference
                   className="border border-gray-600 rounded-xl overflow-hidden"
                 >
                   {/* Trigger w/ icon */}
@@ -529,7 +829,7 @@ const MenuPage: React.FC = () => {
                         //   height:"50px"
                         // }}
                       />
-                      <span className="text-xl font-medium text-white">
+                      <span className="text-xl font-medium text-gray-300">
                         {name}
                       </span>
                     </div>
@@ -570,7 +870,8 @@ const MenuPage: React.FC = () => {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true, amount: 0.3 }}
                               whileHover={{
-                                y: -1,
+                                y: -5,
+                                x:5,
                                 scale: 1.02,
                                 boxShadow: "0 25px 50px rgba(245,158,11,0.25)",
                               }}
@@ -594,12 +895,29 @@ const MenuPage: React.FC = () => {
                                   loading="lazy"
                                 />
                               </div>
+
+                              {/* height and width */}
+                              {/* <div
+                                className="flex-shrink-0"
+                                style={{
+                                  width: item.width,
+                                  height: item.height,
+                                }}
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.name}
+                                  className="w-full h-full object-contain"
+                                  loading="lazy"
+                                />
+                              </div> */}
+
                               {/* Text */}
                               <div className="p-6 flex-1">
-                                <h3 className="text-2xl text-white font-extrabold  mb-1">
+                                <h3 className="text-2xl text-amber-200 font-extrabold  mb-1">
                                   {item.name}
                                 </h3>
-                                <p className="text-sm mb-2 text-white">
+                                <p className="text-sm mb-2 text-gray-300">
                                   {item.description}
                                 </p>
                                 {/* <div className="flex items-center justify-between">
