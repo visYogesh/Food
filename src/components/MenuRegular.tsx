@@ -5,15 +5,19 @@ import { useState } from "react";
 const placeholder = "images/b.png";
 
 const categories = [
-  { id: "signatures", name: "Chicken Smokes", icon: "/images/d1.png" },
-  { id: "fusion", name: "Fusion Creations", icon: "/images/d1.png" },
-  { id: "sides", name: "Sides & Shares", icon: "/images/d1.png" },
+  { id: "signatures", name: "Sandwich - Chicken", icon: "/images/d1.png" },
+  { id: "fusion", name: "Sandwich - Veggie", icon: "/images/d1.png" },
+  {
+    id: "sides3",
+    name: "Sandwich - 🏠 House Specials",
+    icon: "/images/d1.png",
+  },
+  { id: "f", name: "Smoked BBQ Stacks", icon: "/images/d1.png" },
+  { id: "f3", name: "Signature Meats", icon: "/images/d1.png" },
+  { id: "desdserts", name: "Barbecue Bakers Beast", icon: "/images/d1.png" },
+  { id: "sides", name: "Sides", icon: "/images/d1.png" },
   { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/d1.png" },
+  { id: "drinks", name: "Drinks", icon: "/images/d1.png" },
 ];
 
 const menuItems: Record<
@@ -24,6 +28,8 @@ const menuItems: Record<
     price: string;
     spicy: boolean;
     image: string;
+    width: string;
+    height: string;
   }[]
 > = {
   signatures: [
@@ -33,6 +39,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "SMOKED DUO MELT",
@@ -40,6 +48,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "CARNIVORE CLUB",
@@ -47,6 +57,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "SIZZLIN’ SLAW STACK",
@@ -54,6 +66,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "BBQ CRUNCH WRAP",
@@ -61,6 +75,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -68,6 +84,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
     {
       name: "TEXAS BBQ BOMB",
@@ -75,6 +93,8 @@ const menuItems: Record<
       price: "$10",
       spicy: true,
       image: "/images/d1.png",
+      width: "",
+      height: "",
     },
   ],
   fusion: [
@@ -85,6 +105,8 @@ const menuItems: Record<
       price: "$16",
       spicy: true,
       image: "/images/c.png",
+      width: "",
+      height: "",
     },
     {
       name: "Tandoori Smoked Chicken",
@@ -93,6 +115,8 @@ const menuItems: Record<
       price: "$22",
       spicy: true,
       image: placeholder,
+      width: "",
+      height: "",
     },
     {
       name: "Miso Glazed Smoked Tofu",
@@ -101,56 +125,323 @@ const menuItems: Record<
       price: "$18",
       spicy: false,
       image: placeholder,
+      width: "",
+      height: "",
     },
   ],
   sides: [
     {
-      name: "Smoked Mac & Cheese",
+      name: "NACHOS",
       description: "Three-cheese blend with smoked gouda and crispy bacon bits",
       price: "$12",
       spicy: false,
-      image: placeholder,
+      image: "/images/menu/regular/sides/nachos.png",
+      width: "",
+      height: "",
     },
     {
-      name: "Charred Street Corn",
+      name: "FRIES",
       description:
         "Mexican-style corn with cotija cheese, lime, and chili powder",
       price: "$8",
       spicy: true,
-      image: placeholder,
+      image: "/images/menu/regular/sides/fries.png",
+      width: "",
+      height: "",
     },
     {
-      name: "Smoke House Beans",
-      description: "Slow-cooked beans with smoked pork and molasses",
+      name: "WEDGES",
+      description: "Seasoned potato wedges with crispy golden texture",
       price: "$10",
       spicy: false,
-      image: placeholder,
+      image: "/images/menu/regular/sides/wedges.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "ONION RINGS",
+      description: "Crispy golden onion rings served with house sauce",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/onionrings.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "OKRA",
+      description: "Southern-style fried okra with seasoning",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/okra.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "HOUSE MADE PERI PERI WEDGES",
+      description: "Spicy peri peri seasoned wedges made in-house",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/sides/housemadeperiperiwedges.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "MOZRILLA STICKS",
+      description: "Fried mozzarella sticks with a gooey cheese center",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/mozrillasticks.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BRISKIT CHILI",
+      description: "Slow-cooked chili with tender brisket and rich spices",
+      price: "$10",
+      spicy: true,
+      image: "/images/menu/regular/sides/briskitchili.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "MAC & CHEESE",
+      description: "Creamy mac & cheese with a cheddar cheese blend",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/macandcheese.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "BARBECUE BEANS",
+      description: "Sweet and smoky barbecue baked beans",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/barbecuebeans.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "MASHED POTATO",
+      description: "Creamy mashed potatoes with butter and herbs",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/mashedpotato.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "COLESLAW",
+      description: "Fresh coleslaw with a tangy and creamy dressing",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/coleslaw.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "POTATO SALAD",
+      description: "Classic potato salad with herbs and creamy mayo",
+      price: "$10",
+      spicy: false,
+      image: "/images/menu/regular/sides/potatosalad.png",
+      width: "",
+      height: "",
     },
   ],
   desserts: [
     {
-      name: "Smoked Chocolate Tart",
-      description:
-        "Dark chocolate tart with smoked salt and vanilla bean ice cream",
-      price: "$14",
-      spicy: false,
-      image: "/images/gulabjamun.png",
-    },
-    {
-      name: "Bourbon Peach Cobbler",
-      description:
-        "Warm peach cobbler with bourbon sauce and cinnamon ice cream",
+      name: "VANILLA GULAB JAMUN",
+      description: "delicious Indian fusion dessert",
       price: "$12",
       spicy: false,
-      image: placeholder,
+      image: "/images/menu/regular/desserts/vanillagulabjamun.png",
+      width: "20",
+      height: "20",
     },
     {
-      name: "Maple Smoked Cheesecake",
-      description:
-        "Creamy cheesecake with maple smoke essence and graham crust",
-      price: "$13",
+      name: "KULFI MILK SHAKES",
+      description: "delicious Indian fusion dessert",
+      price: "$12",
       spicy: false,
-      image: placeholder,
+      image: "/images/menu/regular/desserts/kulfimilkshakes.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "CHEESECAKE JAMUNS",
+      description: "delicious Indian fusion dessert",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/cheesecakejamuns.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "MASALA CHAI  COTTA",
+      description:
+        "Heat cream with chai spices, sugar, and gelatin. Pour in cups, chill. Top with crumbs or honey.",
+      price: "$12.99",
+      spicy: false,
+      image: "/images/menu/regular/desserts/masalachaipannacotta.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "CARDAMOM CUSTARD CUPS",
+      description:
+        "Mix eggs, milk, sugar, cardamom. Bake in ramekins. Chill and top with pistachios.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/cardamomcustardcups.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "NUTELLA TOAST BOMB",
+      description:
+        "Toast naan, spread Nutella, fold. Warm and top with nuts or cookie dust.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/nutellatoastbomb.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "RABRI SHOTS",
+      description:
+        "Reduce milk with sugar + cardamom or use rabri. Portion in cups. Garnish with nuts/jalebi.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/rabrishots.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "SAFFRON/ROSE MILK CAKE",
+      description:
+        "Bake sponge, poke holes, soak in flavored milk. Chill, cut, top with cream or nuts.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/saffronrosemilkcake.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "CHAI-SPICED DONUTS",
+      description:
+        "Toss mini donuts in chai sugar mix. Serve with caramel or condensed milk dip.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/chaispiceddonuts.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "FALOODA FLOAT",
+      description:
+        "Layer sabja seeds, rose syrup, milk, falooda sev. Add ice cream. Serve cold.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/faloodafloat.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "BISCOFF KULFI SLICE",
+      description:
+        "Slice kulfi, drizzle warm Biscoff. Top with biscuit or pistachio dust.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/biscoffkulfislice.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "DATE & NUT ENERGY BALLS",
+      description:
+        "Blend dates, nuts, cardamom. Roll into balls. Chill. Serve 2 per order.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/dateandnutenergyballs.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "MANGO MOUSSE CUPS",
+      description:
+        "Mix mango pulp, cream, condensed milk. Chill in cups. Top with mango or mint.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/mangomoussecups.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "BANANA PUDDING",
+      description: "delicious Indian fusion dessert",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/bananapudding.png",
+      width: "20",
+      height: "20",
+    },
+  ],
+
+  drinks: [
+    {
+      name: "WATER BOTTLE",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/water.png",
+      width: "20",
+      height: "20",
+    },
+    {
+      name: "MONSTER",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/monster.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "REDBULL",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/redbull.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "THUMBSUP",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/thumbsup.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "SPRITE",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/sprite.png",
+      width: "",
+      height: "",
+    },
+    {
+      name: "FANTA",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/fanta.png",
+      width: "",
+      height: "",
     },
   ],
 };
@@ -179,7 +470,7 @@ const MenuPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-between items-center"
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold text-amber-300">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white">
               Our Menu
             </h2>
             <div className="flex flex-wrap gap-4 ml-auto">
@@ -193,7 +484,6 @@ const MenuPage: React.FC = () => {
               >
                 Full Menu
               </a>
-
 
               {/* Order Now */}
               <a
@@ -209,7 +499,7 @@ const MenuPage: React.FC = () => {
             {/* inline Order Now for sm */}
             {/* … */}
           </motion.div>
-          <p className="text-base sm:text-lg leading-relaxed mb-12">
+          <p className="text-base sm:text-lg leading-relaxed mb-12 text-gray-50">
             Each dish is a masterpiece, crafted to deliver an unforgettable
             culinary journey.
           </p>
@@ -234,8 +524,14 @@ const MenuPage: React.FC = () => {
                         src={icon}
                         alt=""
                         className="w-20 h-10 mr-3 object-cover"
+                        // style={{
+                        //   width:"80px",
+                        //   height:"50px"
+                        // }}
                       />
-                      <span className="text-xl font-bold">{name}</span>
+                      <span className="text-xl font-medium text-white">
+                        {name}
+                      </span>
                     </div>
                     <motion.svg
                       animate={{ rotate: isOpen ? 180 : 0 }}
@@ -291,7 +587,10 @@ const MenuPage: React.FC = () => {
                                 <img
                                   src={item.image}
                                   alt={item.name}
-                                  className="w-full h-full object-cover"
+                                  className="w-full h-full object-contain"
+                                  style={{
+                                    height: "90px",
+                                  }}
                                   loading="lazy"
                                 />
                               </div>
@@ -303,7 +602,7 @@ const MenuPage: React.FC = () => {
                                 <p className="text-sm mb-2 text-white">
                                   {item.description}
                                 </p>
-                                <div className="flex items-center justify-between">
+                                {/* <div className="flex items-center justify-between">
                                   {item.spicy && (
                                     <span className="bg-red-600 text-white px-2 py-1 rounded-full text-xs">
                                       🌶️ Spicy
@@ -312,7 +611,7 @@ const MenuPage: React.FC = () => {
                                   <span className="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold">
                                     {item.price}
                                   </span>
-                                </div>
+                                </div> */}
                               </div>
                             </motion.div>
                           ))}
