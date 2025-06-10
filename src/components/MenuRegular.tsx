@@ -2,17 +2,45 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { useState } from "react";
 
-const placeholder = "images/b.png";
+const placeholder = "images/bestseller.png";
 
 const categories = [
-  { id: "chicken", name: "Sandwich - Chicken", icon: "/images/menu/icons/chicken.png" },
-  { id: "turkey", name: "Sandwich - Turkey", icon: "/images/menu/icons/turkey.png" },
-  { id: "signatures", name: "Sandwich - House Specials",icon: "/images/menu/icons/specials.png"},
-  { id: "smokedbbq", name: "Smoked BBQ Stacks", icon: "/images/menu/icons/smokedmeat.png" },
-  { id: "signatuemeats", name: "Signature Meats", icon: "/images/menu/icons/signaturemeats.png" },
-  { id: "barbecuebakers", name: "Barbecue Bakers Beast", icon: "/images/menu/icons/barbecuebeast.png" },
+  {
+    id: "chicken",
+    name: "Sandwich - Chicken",
+    icon: "/images/menu/icons/chicken.png",
+  },
+  {
+    id: "turkey",
+    name: "Sandwich - Turkey",
+    icon: "/images/menu/icons/turkey.png",
+  },
+  {
+    id: "signatures",
+    name: "Sandwich - House Specials",
+    icon: "/images/menu/icons/specials.png",
+  },
+  {
+    id: "smokedbbq",
+    name: "Smoked BBQ Stacks",
+    icon: "/images/menu/icons/smokedmeat.png",
+  },
+  {
+    id: "signatuemeats",
+    name: "Signature Meats",
+    icon: "/images/menu/icons/signaturemeats.png",
+  },
+  {
+    id: "barbecuebakers",
+    name: "Barbecue Bakers Beast",
+    icon: "/images/menu/icons/barbecuebeast.png",
+  },
   { id: "sides", name: "Sides", icon: "/images/menu/icons/sides.png" },
-  { id: "desserts", name: "Sweet Endings", icon: "/images/menu/icons/desserts.png" },
+  {
+    id: "desserts",
+    name: "Sweet Endings",
+    icon: "/images/menu/icons/desserts.png",
+  },
   { id: "drinks", name: "Drinks", icon: "/images/menu/icons/drinks.png" },
 ];
 
@@ -26,6 +54,7 @@ const menuItems: Record<
     image: string;
     width: string;
     height: string;
+    bestseller: boolean;
   }[]
 > = {
   chicken: [
@@ -37,6 +66,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/classicchickensandwich.png",
       width: "70px",
       height: "100px",
+      bestseller: true,
     },
     {
       name: "SWEET HEAT CHICKEN",
@@ -46,6 +76,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/sweetheatchicken.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
     {
       name: "CRISPY KICK",
@@ -55,6 +86,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/crispykick.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
     {
       name: "CRISPY CHICKEN CRUNCH",
@@ -64,6 +96,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/crispychickencrunch.png",
       width: "80px",
       height: "100px",
+      bestseller: true,
     },
     {
       name: "SPICY CRISPY",
@@ -73,6 +106,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/spicycrispy.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
     {
       name: "NASHVILLE-STYLE HOT CHICKEN",
@@ -82,6 +116,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/nashvillestylehotchicken.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
     {
       name: "SWEET N SPICY",
@@ -91,6 +126,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/sweetnspicy.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
     {
       name: "SOUTHERN HEAT STACK",
@@ -100,6 +136,7 @@ const menuItems: Record<
       image: "/images/menu/regular/chicken/southernheatstack.png",
       width: "100px",
       height: "100px",
+      bestseller: false,
     },
   ],
   turkey: [
@@ -111,6 +148,7 @@ const menuItems: Record<
       image: "/images/menu/regular/turkey/sweetheatturkey.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "TURKEY CLUB DELUXE",
@@ -120,6 +158,7 @@ const menuItems: Record<
       image: "/images/menu/regular/turkey/turkeyclubdeluxe.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SMOKEHOUSE TURKEY",
@@ -129,6 +168,7 @@ const menuItems: Record<
       image: "/images/menu/regular/turkey/smokehouseturkey.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BUFFALO GARDEN STACK",
@@ -139,6 +179,7 @@ const menuItems: Record<
       image: "/images/menu/regular/turkey/buffalogardenstack.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
   signatures: [
@@ -150,6 +191,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "TEXAS BBQ BOMB",
@@ -159,6 +201,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/texasbbqbomb.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -169,6 +212,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/carnivoreclub.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SIZZLIN’ SLAW STACK",
@@ -178,6 +222,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BBQ CRUNCH WRAP",
@@ -187,6 +232,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -197,6 +243,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokedduomelt.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -206,6 +253,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
   smokedbbq: [
@@ -217,6 +265,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "TEXAS BBQ BOMB",
@@ -226,6 +275,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/texasbbqbomb.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -236,6 +286,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/carnivoreclub.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SIZZLIN’ SLAW STACK",
@@ -245,6 +296,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BBQ CRUNCH WRAP",
@@ -254,6 +306,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -264,6 +317,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokedduomelt.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -273,6 +327,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
   signatuemeats: [
@@ -284,6 +339,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "TEXAS BBQ BOMB",
@@ -293,6 +349,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/texasbbqbomb.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -303,6 +360,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/carnivoreclub.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SIZZLIN’ SLAW STACK",
@@ -312,6 +370,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BBQ CRUNCH WRAP",
@@ -321,6 +380,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -331,6 +391,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokedduomelt.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -340,6 +401,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
   barbecuebakers: [
@@ -351,6 +413,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/meattornado.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "TEXAS BBQ BOMB",
@@ -360,6 +423,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/texasbbqbomb.png",
       width: "",
       height: "",
+      bestseller: true,
     },
 
     {
@@ -370,6 +434,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/carnivoreclub.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SIZZLIN’ SLAW STACK",
@@ -379,6 +444,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BBQ CRUNCH WRAP",
@@ -388,6 +454,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
       width: "",
       height: "",
+      bestseller: false,
     },
 
     {
@@ -398,6 +465,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokedduomelt.png",
       width: "",
       height: "",
+      bestseller: true,
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -407,6 +475,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
   sides: [
@@ -418,6 +487,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/nachos.png",
       width: "",
       height: "",
+      bestseller: true,
     },
     {
       name: "FRIES",
@@ -428,6 +498,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/fries.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "WEDGES",
@@ -437,6 +508,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/wedges.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "ONION RINGS",
@@ -446,6 +518,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/onionrings.png",
       width: "",
       height: "",
+      bestseller: true,
     },
     {
       name: "OKRA",
@@ -455,6 +528,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/okra.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "HOUSE MADE PERI PERI WEDGES",
@@ -464,6 +538,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/housemadeperiperiwedges.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "MOZRILLA STICKS",
@@ -473,6 +548,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/mozrillasticks.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "BRISKIT CHILI",
@@ -482,6 +558,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/briskitchili.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "MAC & CHEESE",
@@ -491,6 +568,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/macandcheese.png",
       width: "",
       height: "",
+      bestseller: true,
     },
     {
       name: "BARBECUE BEANS",
@@ -500,6 +578,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/barbecuebeans.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "MASHED POTATO",
@@ -509,6 +588,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/mashedpotato.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "COLESLAW",
@@ -518,6 +598,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/coleslaw.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "POTATO SALAD",
@@ -527,6 +608,7 @@ const menuItems: Record<
       image: "/images/menu/regular/sides/potatosalad.png",
       width: "",
       height: "",
+      bestseller: true,
     },
   ],
   desserts: [
@@ -538,6 +620,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/vanillagulabjamun.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "KULFI MILK SHAKES",
@@ -547,6 +630,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/kulfimilkshakes.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "CHEESECAKE JAMUNS",
@@ -556,6 +640,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/cheesecakejamuns.png",
       width: "20",
       height: "20",
+      bestseller: true,
     },
     {
       name: "MASALA CHAI  COTTA",
@@ -566,6 +651,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/masalachaipannacotta.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "CARDAMOM CUSTARD CUPS",
@@ -576,6 +662,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/cardamomcustardcups.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "NUTELLA TOAST BOMB",
@@ -586,6 +673,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/nutellatoastbomb.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "RABRI SHOTS",
@@ -596,6 +684,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/rabrishots.png",
       width: "20",
       height: "20",
+      bestseller: true,
     },
     {
       name: "SAFFRON/ROSE MILK CAKE",
@@ -606,6 +695,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/saffronrosemilkcake.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "CHAI-SPICED DONUTS",
@@ -616,6 +706,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/chaispiceddonuts.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "FALOODA FLOAT",
@@ -626,6 +717,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/faloodafloat.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
     {
       name: "BISCOFF KULFI SLICE",
@@ -636,6 +728,19 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/biscoffkulfislice.png",
       width: "20",
       height: "20",
+      bestseller: false,
+    },
+
+    {
+      name: "MANGO MOUSSE CUPS",
+      description:
+        "Mix mango pulp, cream, condensed milk. Chill in cups. Top with mango or mint.",
+      price: "$12",
+      spicy: false,
+      image: "/images/menu/regular/desserts/mangomoussecups.png",
+      width: "20",
+      height: "20",
+      bestseller: true,
     },
     {
       name: "DATE & NUT ENERGY BALLS",
@@ -646,16 +751,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/dateandnutenergyballs.png",
       width: "20",
       height: "20",
-    },
-    {
-      name: "MANGO MOUSSE CUPS",
-      description:
-        "Mix mango pulp, cream, condensed milk. Chill in cups. Top with mango or mint.",
-      price: "$12",
-      spicy: false,
-      image: "/images/menu/regular/desserts/mangomoussecups.png",
-      width: "20",
-      height: "20",
+      bestseller: false,
     },
     {
       name: "BANANA PUDDING",
@@ -665,6 +761,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/bananapudding.png",
       width: "20",
       height: "20",
+      bestseller: false,
     },
   ],
 
@@ -677,15 +774,7 @@ const menuItems: Record<
       image: "/images/menu/regular/drinks/water.png",
       width: "20",
       height: "20",
-    },
-    {
-      name: "MONSTER",
-      description: "give you wings",
-      price: "$14",
-      spicy: false,
-      image: "/images/menu/regular/drinks/monster.png",
-      width: "",
-      height: "",
+      bestseller: false,
     },
     {
       name: "REDBULL",
@@ -695,7 +784,19 @@ const menuItems: Record<
       image: "/images/menu/regular/drinks/redbull.png",
       width: "",
       height: "",
+      bestseller: true,
     },
+    {
+      name: "MONSTER",
+      description: "give you wings",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/drinks/monster.png",
+      width: "",
+      height: "",
+      bestseller: false,
+    },
+
     {
       name: "THUMBSUP",
       description: "give you wings",
@@ -704,6 +805,7 @@ const menuItems: Record<
       image: "/images/menu/regular/drinks/thumbsup.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "SPRITE",
@@ -713,6 +815,7 @@ const menuItems: Record<
       image: "/images/menu/regular/drinks/sprite.png",
       width: "",
       height: "",
+      bestseller: false,
     },
     {
       name: "FANTA",
@@ -722,6 +825,7 @@ const menuItems: Record<
       image: "/images/menu/regular/drinks/fanta.png",
       width: "",
       height: "",
+      bestseller: false,
     },
   ],
 };
@@ -871,7 +975,7 @@ const MenuPage: React.FC = () => {
                               viewport={{ once: true, amount: 0.3 }}
                               whileHover={{
                                 y: -5,
-                                x:5,
+                                x: 5,
                                 scale: 1.02,
                                 boxShadow: "0 25px 50px rgba(245,158,11,0.25)",
                               }}
@@ -880,56 +984,35 @@ const MenuPage: React.FC = () => {
                                 stiffness: 300,
                                 damping: 30,
                               }}
-                              // bg-white
-                              className="border border-gray-400 flex items-center  rounded-lg overflow-hidden"
+                              className="relative border border-gray-600 flex items-center rounded-lg overflow-hidden bg-black/20 min-h-[84px] sm:min-h-[115px]"
                             >
-                              {/* Fixed-size image */}
-                              <div className="flex-shrink-0 w-32 h-20">
+                              {/* Bestseller Badge */}
+                              {item.bestseller && (
+                                <img
+                                  src="/images/bestseller2.png"
+                                  alt="Bestseller"
+                                  className="absolute sm:top-4 top-1.5 right-2 w-16 h-20 sm:w-[90px] sm:h-[90px]"
+                                />
+                              )}
+
+                              {/* Food Image */}
+                              <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-20 ml-2">
                                 <img
                                   src={item.image}
                                   alt={item.name}
                                   className="w-full h-full object-contain"
-                                  style={{
-                                    height: "90px",
-                                  }}
                                   loading="lazy"
                                 />
                               </div>
 
-                              {/* height and width */}
-                              {/* <div
-                                className="flex-shrink-0"
-                                style={{
-                                  width: item.width,
-                                  height: item.height,
-                                }}
-                              >
-                                <img
-                                  src={item.image}
-                                  alt={item.name}
-                                  className="w-full h-full object-contain"
-                                  loading="lazy"
-                                />
-                              </div> */}
-
-                              {/* Text */}
-                              <div className="p-6 flex-1">
-                                <h3 className="text-2xl text-amber-200 font-extrabold  mb-1">
+                              {/* Text Content */}
+                              <div className="px-4 py-3 pr-20 sm:pr-24">
+                                <h3 className="text-base sm:text-lg font-bold text-amber-200 leading-tight">
                                   {item.name}
                                 </h3>
-                                <p className="text-sm mb-2 text-gray-300">
+                                <p className="text-sm text-gray-400">
                                   {item.description}
                                 </p>
-                                {/* <div className="flex items-center justify-between">
-                                  {item.spicy && (
-                                    <span className="bg-red-600 text-white px-2 py-1 rounded-full text-xs">
-                                      🌶️ Spicy
-                                    </span>
-                                  )}
-                                  <span className="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                                    {item.price}
-                                  </span>
-                                </div> */}
                               </div>
                             </motion.div>
                           ))}
