@@ -63,7 +63,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
           <svg className="absolute -bottom-40 -right-40 w-[500px] h-[500px]" viewBox="0 0 600 600">
             <g transform="translate(300,300)">
               <path
-                fill="#FFD93D"
+                fill="#1ea3d4"
                 opacity="0.7"
                 d="M98,-134C126,-116,154,-98,168,-75C182,-52,182,-26,182,2C182,30,182,60,168,86C154,112,126,133,98,148C70,163,42,171,16,163C-10,155,-34,131,-59,114C-84,97,-110,88,-134,71C-158,54,-180,29,-188,0C-196,-29,-190,-58,-179,-83C-168,-108,-152,-129,-132,-149C-112,-169,-89,-188,-60,-197C-31,-206,1,-205,28,-195C55,-185,78,-166,98,-134Z"
               />
@@ -89,9 +89,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
           </div>
 
           {/* Text */}
-          <h1 className="relative z-10 text-6xl font-extrabold text-white animate-typing">
-            SMOKED FUSION
-          </h1>
+          <h1 className="relative z-10 text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600  animate-typing">
+  SMOKED FUSION
+</h1>
+
         </div>
       )}
 

@@ -337,7 +337,7 @@ strong {
 /* Typing effect */
 @keyframes typing {
   from { width: 0; }
-  to   { width: 15ch; } /* a little padding for wide chars */
+  to   { width: 14ch; } /* a little padding for wide chars */
 }
 .animate-typing {
   overflow: hidden;
@@ -345,8 +345,28 @@ strong {
   display: inline-block;
   border-right: 4px solid white;
   width: 15ch;
-  animation: typing 2s steps(15) forwards;
+  animation: typing 2s steps(15) forwards, hide-cursor2 0.1s 2s forwards;
 }
+
+
+.animate-typing-regular { 
+  overflow: hidden; 
+  white-space: nowrap; 
+  display: inline-block; 
+  border-right: 4px solid white; 
+  width: 8ch; /* Adjusted for "Our Menu" (8 characters) */
+  animation: typing2 2s steps(8) forwards, hide-cursor2 0.1s 2s forwards; /* Hide cursor after typing completes */
+} 
+
+@keyframes typing2 {
+  from { width: 0; }
+  to { width: 8ch; }
+}
+
+@keyframes hide-cursor2 {
+  to { border-right: none; }
+}
+
 
 /* Smoke puffs */
 .smoke {
@@ -473,5 +493,19 @@ strong {
   }
   100% {
     transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+.dynamic-image-container {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .dynamic-image-container {
+    transform: scale(0.8);
   }
 }

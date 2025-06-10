@@ -64,7 +64,7 @@ const menuItems: Record<
       price: "$16",
       spicy: true,
       image: "/images/menu/regular/chicken/classicchickensandwich.png",
-      width: "70px",
+      width: "75px",
       height: "100px",
       bestseller: true,
     },
@@ -73,7 +73,7 @@ const menuItems: Record<
       description: "Pulled chicken, hot honey glaze, toping lettuce, mayo",
       price: "$22",
       spicy: true,
-      image: "/images/menu/regular/chicken/sweetheatchicken.png",
+      image: "/images/chicken2.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -83,7 +83,7 @@ const menuItems: Record<
       description: "Chicken, buffalo + BBQ mix, ranch, cole slaw",
       price: "$18",
       spicy: false,
-      image: "/images/menu/regular/chicken/crispykick.png",
+      image: "/images/chicken3.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -93,8 +93,8 @@ const menuItems: Record<
       description: "chicken, comeback sauce, crispy onions, and pickles",
       price: "$18",
       spicy: false,
-      image: "/images/menu/regular/chicken/crispychickencrunch.png",
-      width: "80px",
+      image: "/images/ccc.png",
+      width: "75px",
       height: "100px",
       bestseller: true,
     },
@@ -103,7 +103,7 @@ const menuItems: Record<
       description: "CRISPY CHICKEN, NASHVILLE,",
       price: "$16",
       spicy: true,
-      image: "/images/menu/regular/chicken/spicycrispy.png",
+      image: "/images/chickencrispy.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -113,7 +113,7 @@ const menuItems: Record<
       description: "Spicy, crispy fried chicken with bold Nashville heat",
       price: "$22",
       spicy: true,
-      image: "/images/menu/regular/chicken/nashvillestylehotchicken.png",
+      image: "/images/chicken5.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -123,7 +123,7 @@ const menuItems: Record<
       description: "SPICY BBQ SAUCE, BUFFALO, HONEY, TOPING COLESLAW OPTIONAL",
       price: "$18",
       spicy: false,
-      image: "/images/menu/regular/chicken/sweetnspicy.png",
+      image: "/images/chicken6.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -133,7 +133,7 @@ const menuItems: Record<
       description: "COLESLAW, PICKLES, NASHVILLE HOT SAUCE, RANCH DRIZZLE",
       price: "$18",
       spicy: false,
-      image: "/images/menu/regular/chicken/southernheatstack.png",
+      image: "/images/chicken7.png",
       width: "100px",
       height: "100px",
       bestseller: false,
@@ -873,7 +873,7 @@ const MenuPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-between items-center"
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold text-amber-500">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-500 to-amber-500 animate-typing-regular">
               Our Menu
             </h2>
             <div className="flex flex-wrap gap-4 ml-auto">
@@ -923,6 +923,7 @@ const MenuPage: React.FC = () => {
                     className="w-full flex items-center justify-between px-6 py-4 "
                     // bg-red-800 hover:bg-gray-700
                   >
+                    {/* side icon */}
                     <div className="flex items-center">
                       <img
                         src={icon}
@@ -1004,6 +1005,22 @@ const MenuPage: React.FC = () => {
                                   loading="lazy"
                                 />
                               </div>
+
+                              {/* dynamic food item size */}
+                              {/* <div
+                                className="flex-shrink-0"
+                                style={{
+                                  width: item.width,
+                                  height: item.height,
+                                }}
+                              >
+                                <img
+                                  src={item.image}
+                                  alt={item.name}
+                                  className="w-full h-full object-contain"
+                                  loading="lazy"
+                                />
+                              </div> */}
 
                               {/* Text Content */}
                               <div className="px-4 py-3 pr-20 sm:pr-24">

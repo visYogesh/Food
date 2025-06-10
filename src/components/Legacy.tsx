@@ -5,7 +5,7 @@ import { Flame, Crown, Heart } from "lucide-react";
 import { Award, Users, Clock } from "lucide-react";
 
 const stats = [
-  { icon: Award, label: "Years of Excellence", value: "25+" },
+  { icon: Award, label: "Years of Excellence", value: "5+" },
   { icon: Users, label: "Happy Customers", value: "50K+" },
   { icon: Clock, label: "Hours of Smoking", value: "100K+" },
 ];
