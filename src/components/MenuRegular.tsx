@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { useState } from "react";
-
+import GloriaFoodWidget from "./GloriaFoodWidget";
 const placeholder = "images/bestseller.png";
 
 const categories = [
@@ -258,7 +258,7 @@ const menuItems: Record<
   ],
   smokedbbq: [
     {
-      name: "MEAT TORNADO",
+      name: "FRITO PIE SMASH STACK",
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
@@ -268,7 +268,7 @@ const menuItems: Record<
       bestseller: false,
     },
     {
-      name: "TEXAS BBQ BOMB",
+      name: "THE MAGNIFICO",
       description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
       price: "$10",
       spicy: true,
@@ -279,7 +279,7 @@ const menuItems: Record<
     },
 
     {
-      name: "CARNIVORE CLUB",
+      name: "NACHO NACHO MAN",
       description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
       price: "$10",
       spicy: true,
@@ -289,7 +289,7 @@ const menuItems: Record<
       bestseller: false,
     },
     {
-      name: "SIZZLIN’ SLAW STACK",
+      name: "FRIED PICKLE BRISKET MELT",
       description: "Pork + Chicken, slaw, hot honey, pickled onions",
       price: "$10",
       spicy: true,
@@ -299,32 +299,11 @@ const menuItems: Record<
       bestseller: false,
     },
     {
-      name: "BBQ CRUNCH WRAP",
+      name: "QUESO LAVA BOWL",
       description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
       price: "$10",
       spicy: true,
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-
-    {
-      name: "SMOKED DUO MELT",
-      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/smokedduomelt.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-    {
-      name: "SMOKEHOUSE PHILLY",
-      description: "Brisket + Chicken, grilled onions, chedder",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/smokehousephilly.png",
       width: "",
       height: "",
       bestseller: false,
@@ -889,15 +868,9 @@ const MenuPage: React.FC = () => {
               </a>
 
               {/* Order Now */}
-              <a
-                href="https://www.youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-amber-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-600 transition"
-              >
-                Order Now
-              </a>
+            
             </div>
+              <GloriaFoodWidget />
 
             {/* inline Order Now for sm */}
             {/* … */}
