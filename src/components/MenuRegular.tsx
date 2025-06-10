@@ -855,9 +855,10 @@ const MenuPage: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-500 to-amber-500 animate-typing-regular">
               Our Menu
             </h2>
-            <div className="flex flex-wrap gap-4 ml-auto">
-              {/* Download PDF */}
-              <a
+            {/* <div className="flex flex-wrap gap-4 ml-auto">
+              </div> */}
+            {/* Download PDF */}
+            {/* <a
                 href="/regular-menu.pdf"
                 title="Regular Menu"
                 target="_blank"
@@ -865,12 +866,11 @@ const MenuPage: React.FC = () => {
                 className="flex items-center px-4 py-2 border border-amber-300 rounded-lg text-amber-300 hover:bg-amber-300 hover:text-gray-900 transition"
               >
                 Full Menu
-              </a>
+              </a> */}
 
-              {/* Order Now */}
-            
-            </div>
-              <GloriaFoodWidget />
+            {/* Order Now */}
+
+            <GloriaFoodWidget />
 
             {/* inline Order Now for sm */}
             {/* … */}
