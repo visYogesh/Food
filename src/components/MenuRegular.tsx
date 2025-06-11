@@ -1015,7 +1015,20 @@ const MenuPage: React.FC = () => {
             })}
           </div>
         </div>
+
+        <div className="flex py-8  flex-wrap gap-4 ml-auto text-center justify-center">
+        <a
+          href="/regular-menu.pdf"
+          title="Regular Menu"
+          target="_blank"
+          // download
+          className="flex items-center px-4 py-2 border border-amber-300 rounded-lg text-amber-300 hover:bg-amber-300 hover:text-gray-900 transition"
+        >
+          Full Menu
+        </a>
+      </div>
       </section>
+      
     </motion.div>
   );
 };
