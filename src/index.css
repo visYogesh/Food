@@ -337,7 +337,7 @@ strong {
 /* Typing effect */
 @keyframes typing {
   from { width: 0; }
-  to   { width: 14ch; } /* a little padding for wide chars */
+  to   { width: 52ch; } /* a little padding for wide chars */
 }
 .animate-typing {
   overflow: hidden;
@@ -360,8 +360,26 @@ strong {
 
 @keyframes typing2 {
   from { width: 0; }
-  to { width: 8ch; }
+  to { width: 12ch; }
 }
+
+
+
+.animate-typing-regular1 { 
+  overflow: hidden; 
+  white-space: nowrap; 
+  display: inline-block; 
+  border-right: 4px solid white; 
+  width: 8ch; /* Adjusted for "Our Menu" (8 characters) */
+  animation: typingh1 2s steps(8) forwards, hide-cursor2 0.1s 2s forwards; /* Hide cursor after typing completes */
+} 
+
+@keyframes typingh1 {
+  from { width: 0; }
+  to { width: 10ch; }
+}
+
+
 
 @keyframes hide-cursor2 {
   to { border-right: none; }

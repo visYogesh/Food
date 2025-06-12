@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { useState } from "react";
 import GloriaFoodWidget from "./GloriaFoodWidget";
-const placeholder = "images/bestseller.png";
 
 const categories = [
   {
@@ -17,7 +16,7 @@ const categories = [
   },
   {
     id: "signatures",
-    name: "Sandwich - House Specials",
+    name: "House Specials",
     icon: "/images/menu/icons/specials.png",
   },
   {
@@ -32,7 +31,7 @@ const categories = [
   },
   {
     id: "barbecuebakers",
-    name: "Barbecue Bakers Beast",
+    name: "Barbecue Bakers",
     icon: "/images/menu/icons/barbecuebeast.png",
   },
   { id: "sides", name: "Sides", icon: "/images/menu/icons/sides.png" },
@@ -148,7 +147,7 @@ const menuItems: Record<
       image: "/images/menu/regular/turkey/sweetheatturkey.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
     {
       name: "TURKEY CLUB DELUXE",
@@ -201,7 +200,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/texasbbqbomb.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
 
     {
@@ -232,7 +231,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
 
     {
@@ -243,7 +242,7 @@ const menuItems: Record<
       image: "/images/menu/regular/housespecials/smokedduomelt.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
     {
       name: "SMOKEHOUSE PHILLY",
@@ -262,7 +261,7 @@ const menuItems: Record<
       description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
       price: "$10",
       spicy: true,
-      image: "/images/menu/regular/housespecials/meattornado.png",
+      image: "/images/menu/regular/smoked/fritopiesmashstack.png",
       width: "",
       height: "",
       bestseller: false,
@@ -272,10 +271,10 @@ const menuItems: Record<
       description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
       price: "$10",
       spicy: true,
-      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      image: "/images/menu/regular/smoked/themagnifico.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
 
     {
@@ -283,7 +282,7 @@ const menuItems: Record<
       description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
       price: "$10",
       spicy: true,
-      image: "/images/menu/regular/housespecials/carnivoreclub.png",
+      image: "/images/menu/regular/smoked/nachonachoman.png",
       width: "",
       height: "",
       bestseller: false,
@@ -293,7 +292,7 @@ const menuItems: Record<
       description: "Pork + Chicken, slaw, hot honey, pickled onions",
       price: "$10",
       spicy: true,
-      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      image: "/images/menu/regular/smoked/friedpicklebrisketmelt.png",
       width: "",
       height: "",
       bestseller: false,
@@ -303,81 +302,80 @@ const menuItems: Record<
       description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
       price: "$10",
       spicy: true,
-      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      image: "/images/menu/regular/smoked/quesolavabowl.png",
       width: "",
       height: "",
-      bestseller: false,
+      bestseller: true,
     },
   ],
   signatuemeats: [
     {
-      name: "MEAT TORNADO",
-      description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/meattornado.png",
+      name: "CHOPPED BRISKET",
+      description: "Tender smoked brisket, chopped and seasoned to perfection",
+      price: "$15",
+      spicy: false,
+      image: "/images/menu/regular/signatureitems/choppedbrisket.png",
       width: "",
       height: "",
       bestseller: false,
     },
     {
-      name: "TEXAS BBQ BOMB",
-      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-
-    {
-      name: "CARNIVORE CLUB",
-      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/carnivoreclub.png",
+      name: "SLICED BRISKET",
+      description:
+        "Juicy slices of slow-smoked brisket with a rich smoky flavor",
+      price: "$16",
+      spicy: false,
+      image: "/images/menu/regular/signatureitems/slicedbrisket.png",
       width: "",
       height: "",
       bestseller: false,
     },
     {
-      name: "SIZZLIN’ SLAW STACK",
-      description: "Pork + Chicken, slaw, hot honey, pickled onions",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
+      name: "PULLED PORK",
+      description: "Classic pulled pork, slow-cooked and lightly sauced",
+      price: "$14",
+      spicy: false,
+      image: "/images/menu/regular/signatureitems/pulledpork.png",
       width: "",
       height: "",
       bestseller: false,
     },
     {
-      name: "BBQ CRUNCH WRAP",
-      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
-      price: "$10",
+      name: "JALAPENO CHEDDAR SAUSAGE",
+      description: "Spicy jalapeño sausage blended with sharp cheddar cheese",
+      price: "$13",
       spicy: true,
-      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-
-    {
-      name: "SMOKED DUO MELT",
-      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/smokedduomelt.png",
+      image: "/images/menu/regular/signatureitems/jalapenocheddarsausage.png",
       width: "",
       height: "",
       bestseller: false,
     },
     {
-      name: "SMOKEHOUSE PHILLY",
-      description: "Brisket + Chicken, grilled onions, chedder",
-      price: "$10",
+      name: "POLISH KIELBASA",
+      description: "Traditional Polish sausage with a smoky and savory kick",
+      price: "$13",
+      spicy: false,
+      image: "/images/menu/regular/signatureitems/polishkielbasa.png",
+      width: "",
+      height: "",
+      bestseller: false,
+    },
+    {
+      name: "SMOKED TURKEY BREAST",
+      description: "Lean turkey breast smoked to juicy perfection",
+      price: "$15",
+      spicy: false,
+      image: "/images/menu/regular/signatureitems/smokedturkeybreast.png",
+      width: "",
+      height: "",
+      bestseller: false,
+    },
+    {
+      name: "SPICY CHICKEN",
+      description: "Bold and fiery chicken with a smoky finish",
+      price: "$14",
       spicy: true,
-      image: "/images/menu/regular/housespecials/smokehousephilly.png",
+      image: "/images/menu/regular/signatureitems/spicychicken.png",
       width: "",
       height: "",
       bestseller: false,
@@ -385,73 +383,55 @@ const menuItems: Record<
   ],
   barbecuebakers: [
     {
-      name: "MEAT TORNADO",
-      description: "Brisket + Pulled Pork + Sausage, BBQ sauce, slaw, cheddar",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/meattornado.png",
+      name: "THE BRISKET BOMB",
+      description:
+        "Slow-smoked brisket layered with melty cheese and savory BBQ sauce",
+      price: "$18",
+      spicy: false,
+      image: "/images/menu/regular/barbecuebakers/thebrisketbomb.png",
       width: "",
       height: "",
       bestseller: false,
     },
     {
-      name: "TEXAS BBQ BOMB",
-      description: "Brisket + Sausage + Pork, cheddar, pickles, BBQ glaze",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/texasbbqbomb.png",
+      name: "TEXAS MAC BAKER",
+      description:
+        "Baked potato loaded with mac & cheese, brisket, and BBQ drizzle",
+      price: "$19",
+      spicy: false,
+      image: "/images/menu/regular/barbecuebakers/texasmacbaker.png",
+      width: "",
+      height: "",
+      bestseller: false,
+    },
+    {
+      name: "FRITO BAKER CRUNCH",
+      description: "Crispy Fritos, smoky meat blend, cheese, and creamy sauce",
+      price: "$16",
+      spicy: false,
+      image: "/images/menu/regular/barbecuebakers/fritobakercrunch.png",
       width: "",
       height: "",
       bestseller: true,
     },
-
     {
-      name: "CARNIVORE CLUB",
-      description: "Brisket, Turkey, Pork, cheddar, chipotle BBQ",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/carnivoreclub.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-    {
-      name: "SIZZLIN’ SLAW STACK",
-      description: "Pork + Chicken, slaw, hot honey, pickled onions",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/sizzlinslawstack.png",
-      width: "",
-      height: "",
-      bestseller: false,
-    },
-    {
-      name: "BBQ CRUNCH WRAP",
-      description: "Brisket + Sausage, Ranch, chedder cheese, crispy onions",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/bbqcrunchwrap.png",
+      name: "SMOKE HOUSE STACK",
+      description: "Hearty smoked meats stacked on a buttered potato base",
+      price: "$20",
+      spicy: false,
+      image: "/images/menu/regular/barbecuebakers/smokehousestack.png",
       width: "",
       height: "",
       bestseller: false,
     },
 
     {
-      name: "SMOKED DUO MELT",
-      description: "Brisket + Turkey, pepper jack, Mix of ranch and buffalo",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/smokedduomelt.png",
-      width: "",
-      height: "",
-      bestseller: true,
-    },
-    {
-      name: "SMOKEHOUSE PHILLY",
-      description: "Brisket + Chicken, grilled onions, chedder",
-      price: "$10",
-      spicy: true,
-      image: "/images/menu/regular/housespecials/smokehousephilly.png",
+      name: "SOUTHERN COMFORT STACK",
+      description:
+        "Southern-style BBQ meats with gravy, onions, and cheddar blend",
+      price: "$20",
+      spicy: false,
+      image: "/images/menu/regular/barbecuebakers/southerncomfortstack.png",
       width: "",
       height: "",
       bestseller: false,
@@ -652,7 +632,7 @@ const menuItems: Record<
       image: "/images/menu/regular/desserts/nutellatoastbomb.png",
       width: "20",
       height: "20",
-      bestseller: false,
+      bestseller: true,
     },
     {
       name: "RABRI SHOTS",
@@ -743,11 +723,10 @@ const menuItems: Record<
       bestseller: false,
     },
   ],
-
   drinks: [
     {
       name: "WATER BOTTLE",
-      description: "give you wings",
+      description: "",
       price: "$14",
       spicy: false,
       image: "/images/menu/regular/drinks/water.png",
@@ -767,7 +746,7 @@ const menuItems: Record<
     },
     {
       name: "MONSTER",
-      description: "give you wings",
+      description: "",
       price: "$14",
       spicy: false,
       image: "/images/menu/regular/drinks/monster.png",
@@ -778,7 +757,7 @@ const menuItems: Record<
 
     {
       name: "THUMBSUP",
-      description: "give you wings",
+      description: "",
       price: "$14",
       spicy: false,
       image: "/images/menu/regular/drinks/thumbsup.png",
@@ -788,7 +767,7 @@ const menuItems: Record<
     },
     {
       name: "SPRITE",
-      description: "give you wings",
+      description: "",
       price: "$14",
       spicy: false,
       image: "/images/menu/regular/drinks/sprite.png",
@@ -798,7 +777,7 @@ const menuItems: Record<
     },
     {
       name: "FANTA",
-      description: "give you wings",
+      description: "",
       price: "$14",
       spicy: false,
       image: "/images/menu/regular/drinks/fanta.png",
@@ -838,12 +817,11 @@ const MenuPage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="select-non relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-amber-900 text-amber-100"
+      className="select-none bg-gradient-to-br from-black via-gray-900 to-amber-900 text-amber-100"
     >
       <Navigation />
-      {/* …your existing "Order Now" code… */}
 
-      <section className="pt-28 md:pt-32 pb-24">
+      <section className="pt-28 md:pt-32 pb-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -853,28 +831,12 @@ const MenuPage: React.FC = () => {
             className="mb-8 flex justify-between items-center"
           >
             <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-500 to-amber-500 animate-typing-regular">
-              Our Menu
+              Regular Menu
             </h2>
-            {/* <div className="flex flex-wrap gap-4 ml-auto">
-              </div> */}
-            {/* Download PDF */}
-            {/* <a
-                href="/regular-menu.pdf"
-                title="Regular Menu"
-                target="_blank"
-                // download
-                className="flex items-center px-4 py-2 border border-amber-300 rounded-lg text-amber-300 hover:bg-amber-300 hover:text-gray-900 transition"
-              >
-                Full Menu
-              </a> */}
-
-            {/* Order Now */}
 
             <GloriaFoodWidget />
-
-            {/* inline Order Now for sm */}
-            {/* … */}
           </motion.div>
+
           <p className="text-base sm:text-lg leading-relaxed mb-12 text-gray-50">
             Each dish is a masterpiece, crafted to deliver an unforgettable
             culinary journey.
@@ -887,25 +849,18 @@ const MenuPage: React.FC = () => {
               return (
                 <div
                   key={id}
-                  id={`category-${id}`} // Added ID for scrolling reference
+                  id={`category-${id}`}
                   className="border border-gray-600 rounded-xl overflow-hidden"
                 >
-                  {/* Trigger w/ icon */}
                   <button
                     onClick={() => toggleCat(id)}
-                    className="w-full flex items-center justify-between px-6 py-4 "
-                    // bg-red-800 hover:bg-gray-700
+                    className="w-full flex items-center justify-between px-6 py-4"
                   >
-                    {/* side icon */}
                     <div className="flex items-center">
                       <img
                         src={icon}
                         alt=""
                         className="w-20 h-10 mr-3 object-cover"
-                        // style={{
-                        //   width:"80px",
-                        //   height:"50px"
-                        // }}
                       />
                       <span className="text-xl font-medium text-gray-300">
                         {name}
@@ -928,7 +883,6 @@ const MenuPage: React.FC = () => {
                     </motion.svg>
                   </button>
 
-                  {/* Content */}
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -937,10 +891,9 @@ const MenuPage: React.FC = () => {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="px-4 py-6 "
-                        // bg-green-300
+                        className="px-4 py-6"
                       >
-                        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2  gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {menuItems[id].map((item) => (
                             <motion.div
                               key={item.name}
@@ -960,16 +913,14 @@ const MenuPage: React.FC = () => {
                               }}
                               className="relative border border-gray-600 flex items-center rounded-lg overflow-hidden bg-black/20 min-h-[84px] sm:min-h-[115px]"
                             >
-                              {/* Bestseller Badge */}
                               {item.bestseller && (
                                 <img
                                   src="/images/bestseller2.png"
                                   alt="Bestseller"
-                                  className="absolute sm:top-4 top-1.5 right-2 w-16 h-20 sm:w-[90px] sm:h-[90px]"
+                                  className="absolute sm:top-4 top-1.5 right-2 w-16 h-20 sm:w-[80px] sm:h-[90px]"
                                 />
                               )}
 
-                              {/* Food Image */}
                               <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-20 ml-2">
                                 <img
                                   src={item.image}
@@ -979,23 +930,6 @@ const MenuPage: React.FC = () => {
                                 />
                               </div>
 
-                              {/* dynamic food item size */}
-                              {/* <div
-                                className="flex-shrink-0"
-                                style={{
-                                  width: item.width,
-                                  height: item.height,
-                                }}
-                              >
-                                <img
-                                  src={item.image}
-                                  alt={item.name}
-                                  className="w-full h-full object-contain"
-                                  loading="lazy"
-                                />
-                              </div> */}
-
-                              {/* Text Content */}
                               <div className="px-4 py-3 pr-20 sm:pr-24">
                                 <h3 className="text-base sm:text-lg font-bold text-amber-200 leading-tight">
                                   {item.name}
@@ -1014,21 +948,23 @@ const MenuPage: React.FC = () => {
               );
             })}
           </div>
-        </div>
 
-        <div className="flex py-8  flex-wrap gap-4 ml-auto text-center justify-center">
-        <a
-          href="/regular-menu.pdf"
-          title="Regular Menu"
-          target="_blank"
-          // download
-          className="flex items-center px-4 py-2 border border-amber-300 rounded-lg text-amber-300 hover:bg-amber-300 hover:text-gray-900 transition"
-        >
-          Full Menu
-        </a>
-      </div>
+          {/* Full Menu PDF button + text */}
+          <div className="mt-16 text-center">
+            <a
+              href="/regular-menu.pdf"
+              title="Regular Menu"
+              target="_blank"
+              className="inline-flex items-center px-4 py-2 border border-amber-300 rounded-lg text-amber-300 hover:bg-amber-300 hover:text-gray-900 transition"
+            >
+              Full Menu
+            </a>
+            <p className="text-base text-gray-300 mt-8">
+              Images used in the menu are AI-generated for better visual representation.
+            </p>
+          </div>
+        </div>
       </section>
-      
     </motion.div>
   );
 };

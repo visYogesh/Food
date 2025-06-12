@@ -42,6 +42,7 @@ const GloriaFoodWidget = () => {
           cursor: "pointer",
           textAlign: "center",
         }}
+        title="Order on Gloria Food"
         onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#047857")} // hover green-600
         onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#1e293b")}
       >

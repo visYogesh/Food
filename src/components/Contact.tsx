@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import GloriaFoodWidget from "./GloriaFoodWidget";
 
 const contactInfo = [
   {
@@ -128,13 +129,19 @@ const ContactPage = () => (
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-amber-500/25 transition-all duration-300 mr-4"
           >
             Order Food
-          </motion.button>
+          </motion.button> */}
+          
+          <motion.div>
+
+          <GloriaFoodWidget />
+          </motion.div>
+
         </motion.div>
 
         <motion.div

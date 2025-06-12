@@ -15,7 +15,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
       setBlastEnd(true);
       setFadeOutSplash(true); // start fading splash
       setTimeout(() => setHideSplashCompletely(true), 500); // hide splash completely after fade
-    }, 2000);
+    }, 2500);
 
     const confettiInterval = setInterval(() => {
       confetti({
@@ -32,7 +32,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
       });
     }, 400);
 
-    const confettiStop = setTimeout(() => clearInterval(confettiInterval), 2000);
+    const confettiStop = setTimeout(
+      () => clearInterval(confettiInterval),
+      2000
+    );
 
     return () => {
       clearTimeout(splashTimer);
@@ -51,7 +54,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
           } ${blastEnd ? "animate-zoomOut" : ""}`}
         >
           {/* Blobs */}
-          <svg className="absolute -top-40 -left-40 w-[600px] h-[600px]" viewBox="0 0 600 600">
+          <svg
+            className="absolute -top-40 -left-40 w-[600px] h-[600px]"
+            viewBox="0 0 600 600"
+          >
             <g transform="translate(300,300)">
               <path
                 fill="#FF6B6B"
@@ -60,7 +66,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
               />
             </g>
           </svg>
-          <svg className="absolute -bottom-40 -right-40 w-[500px] h-[500px]" viewBox="0 0 600 600">
+          <svg
+            className="absolute -bottom-40 -right-40 w-[500px] h-[500px]"
+            viewBox="0 0 600 600"
+          >
             <g transform="translate(300,300)">
               <path
                 fill="#1ea3d4"
@@ -89,14 +98,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ children }) => {
           </div>
 
           {/* Text */}
-          <h1 className="relative z-10 text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600  animate-typing">
-  SMOKED FUSION
-</h1>
-
+          <h1 className="relative z-10 text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 animate-typing">
+            <span className="block text-5xl">DALLAS</span>
+            <span className="block text-6xl">SMOKED FUSION</span>
+          </h1>
         </div>
       )}
 
-      {/* Main content */}
       <div
         className={`transition-opacity duration-1000 ${
           fadeOutSplash ? "opacity-100" : "opacity-0"

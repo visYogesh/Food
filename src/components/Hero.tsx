@@ -1,3 +1,4 @@
+// Home page.tsx
 import React, { useCallback, CSSProperties, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
