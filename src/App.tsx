@@ -53,7 +53,7 @@ const App = () => (
             <Route path="/menu/special" element={<MenuSpecial />} />
 
             {/* Catch‐all 404 */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/menu/regular" replace />}  />
           </Routes>
         </BrowserRouter>
       </LandingPage>
