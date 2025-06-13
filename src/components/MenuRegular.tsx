@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import { useState } from "react";
 import GloriaFoodWidget from "./GloriaFoodWidget";
+import HalalToaster from "./HalalToaster";
 
 const categories = [
   {
@@ -800,6 +801,7 @@ const MenuPage: React.FC = () => {
       className="select-none bg-gradient-to-br from-black via-gray-900 to-amber-900 text-amber-100"
     >
       <Navigation />
+      <HalalToaster></HalalToaster>
 
       <section className="pt-28 md:pt-32 pb-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
