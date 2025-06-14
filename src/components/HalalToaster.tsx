@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 export default function HalalToaster() {
   const [show, setShow] = useState(false);
@@ -31,10 +32,10 @@ export default function HalalToaster() {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 flex-1">
           <div className="text-sm">
-            <p className="font-semibold text-gray-800">
+            <p className="font-semibold text-lg text-gray-800">
               We also offer a <span className="text-green-600 font-bold">Halal Menu</span> 🍽️
             </p>
-            <p className="text-xs text-gray-500">Would you like to check it out?</p>
+            <p className="text-base text-gray-600">Would you like to check it out?</p>
           </div>
         </div>
         <div className="flex gap-2 shrink-0">
@@ -42,13 +43,13 @@ export default function HalalToaster() {
             onClick={() => navigate("/menu/special")}
             className="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded"
           >
-            Go
+            Visit
           </button>
           <button
             onClick={() => setShow(false)}
             className="border border-gray-300 hover:bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded"
           >
-            No
+           <X className="text-red-500 w-6 h-6" />
           </button>
         </div>
       </div>
