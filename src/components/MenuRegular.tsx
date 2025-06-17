@@ -820,7 +820,7 @@ const MenuPage: React.FC = () => {
           </motion.div>
 
           <p className="text-base sm:text-lg leading-relaxed mb-12 text-gray-50">
-            Each dish is a masterpiece, crafted to deliver an unforgettable
+            Each  item is a masterpiece, crafted to deliver an unforgettable
             culinary journey.
           </p>
 
